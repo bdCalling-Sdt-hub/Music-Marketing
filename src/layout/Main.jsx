@@ -19,7 +19,7 @@ const Main = () => {
         </div>
 
         {/* Page Content */}
-        <div className=" min-h-screen mt-5">
+        <div className=" min-h-screen mt-5 pr-5">
           <Outlet />
         </div>
       </div>

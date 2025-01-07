@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { Area, Column } from '@ant-design/plots';
+import { Link } from 'react-router-dom';
 
 const InfluncerHome = () => {
     const config = {
@@ -49,7 +50,7 @@ const InfluncerHome = () => {
 
 
     return (
-        <div className="p-5">
+        <div className="">
             {/* Stats Section */}
             <div className="flex items-center gap-5 flex-wrap">
                 {[
@@ -72,7 +73,7 @@ const InfluncerHome = () => {
                 ))}
             </div>
 
-            <div className="grid lg:grid-cols-2 items-center md:gap-10 md:pr-10">
+            <div className="grid lg:grid-cols-2 items-center md:gap-10 ">
                 {/* Client Overview 1 */}
                 <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[40vh]">
                     <h2 className="mb-10 font-semibold text-xl">Campaign  Overview</h2>
@@ -118,7 +119,7 @@ const InfluncerHome = () => {
                                             clientName: "TrendyX",
                                             startingTime: "12/12/2025",
                                             deadline: "20/12/2025",
-                                            Payment: "$1,200",
+                                            payment: "$1,200",
                                         },
                                         {
                                             sl: 2,
@@ -126,26 +127,34 @@ const InfluncerHome = () => {
                                             clientName: "TrendyX",
                                             startingTime: "12/12/2025",
                                             deadline: "20/12/2025",
-                                            Payment: "$1,200",
+                                            payment: "$1,200",
                                         },
                                     ].map((campaign, index) => (
-                                        <tr key={index} className="">
+                                        <tr
+                                            key={index}
+                                            className="cursor-pointer hover:bg-gray-200"
+                                            onClick={() => window.location.href = `/influencer/campaignsdetails/${campaign.sl}`}
+                                        >
                                             <td className="px-4 py-3">{campaign.sl}</td>
                                             <td className="px-4 py-3">{campaign.campaignName}</td>
                                             <td className="px-4 py-3">{campaign.clientName}</td>
                                             <td className="px-4 py-3">{campaign.startingTime}</td>
                                             <td className="px-4 py-3">{campaign.deadline}</td>
-                                            <td className="px-4 py-3">{campaign.Payment}</td>
+                                            <td className="px-4 py-3">{campaign.payment}</td>
                                         </tr>
                                     ))}
                                 </tbody>
+
                             </table>
                         </div>
-                        <div className='bg-[#f3f4f6] rounded-lg p-10 grid grid-cols-2 gap-5'>
+                        <div className='bg-[#f3f4f6] rounded-lg p-10 grid grid-cols-2 gap-5 items-center'>
                             <img className='w-full' src="/influencer/Home/HomePageAnnouncement.png" alt="" />
                             <div>
-                                <h2 className='text-3xl font-semibold'>Show All
-                                Campaigns</h2>
+                                <h2 className='text-5xl font-semibold text-center'>Show All
+                                    Campaigns</h2>
+                                <div className='flex justify-center'>
+                                    <button className='bg-secondary text-white px-10 py-3 rounded-lg mt-8'>Show All</button>
+                                </div>
                             </div>
                         </div>
                     </div>

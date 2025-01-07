@@ -18,6 +18,10 @@ import AboutUs from "../dashboardMenu/sidebarMenu/settings/AboutUs/AboutUs";
 import EditAboutUs from "../dashboardMenu/sidebarMenu/settings/AboutUs/EditAboutUs";
 import Admins from "../dashboardMenu/sidebarMenu/Admins/Admins";
 import InfluncerHome from "../dashboardMenu/influencerPage/InfluncerHome";
+import CampaignDetails from "../dashboardMenu/influencerPage/CampaignDetails";
+import Campaigns from "../dashboardMenu/influencerPage/Campaigns";
+import Campaignsupload from "../dashboardMenu/influencerPage/Campaignsupload";
+import CampaignsuploadedFiles from "../dashboardMenu/influencerPage/CampaignsuploadedFiles";
 
 export const router = createBrowserRouter([
   {
@@ -50,12 +54,20 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "profile",
-        element: <Profile />,
+        path: "campaignsdetails/:id",
+        element: <CampaignDetails />,
       },
       {
-        path: "editprofile",
-        element: <EditProfiel />,
+        path: "campaignsupload/:id",
+        element: <Campaignsupload />,
+      },
+      {
+        path: "campaignsuploadedfiels/:id",
+        element: <CampaignsuploadedFiles />,
+      },
+      {
+        path: "campaigns",
+        element: <Campaigns />,
       },
       {
         path: "userslist",

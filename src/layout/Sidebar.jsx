@@ -10,6 +10,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { CiSettings } from "react-icons/ci";
 import Swal from "sweetalert2";
 import { IoIosLogOut } from "react-icons/io";
+import { GrAnnounce } from "react-icons/gr";
 
 
 const Sidebar = () => {
@@ -57,11 +58,24 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
-                  : "flex text-[#430750] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+                  : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
               }
             >
               <BiSolidDashboard className="h-7 w-7 lg:h-5 lg:w-5" />
               <span className="hidden ml-2 sm:block">Dashboard</span>
+            </NavLink>
+
+
+            <NavLink
+              to="campaigns"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
+                  : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+              }
+            >
+              <GrAnnounce className="h-7 w-7 lg:h-5 lg:w-5" />
+              <span className="hidden ml-2 sm:block">Campaigns</span>
             </NavLink>
 
 
