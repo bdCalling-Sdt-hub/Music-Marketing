@@ -22,6 +22,7 @@ import CampaignDetails from "../dashboardMenu/influencerPage/CampaignDetails";
 import Campaigns from "../dashboardMenu/influencerPage/Campaigns";
 import Campaignsupload from "../dashboardMenu/influencerPage/Campaignsupload";
 import CampaignsuploadedFiles from "../dashboardMenu/influencerPage/CampaignsuploadedFiles";
+import Feedbacks from "../dashboardMenu/influencerPage/Feedbacks";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "campaignsuploadedfiels/:id",
         element: <CampaignsuploadedFiles />,
+      },
+      {
+        path: "feedbacks/:id",
+        element: <Feedbacks />,
       },
       {
         path: "campaigns",

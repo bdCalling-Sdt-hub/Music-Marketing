@@ -1,5 +1,6 @@
 import Dragger from 'antd/es/upload/Dragger';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CampaignsuploadedFiles = () => {
     return (
@@ -18,9 +19,9 @@ const CampaignsuploadedFiles = () => {
             </div>
             <div className='grid grid-cols-3 gap-10 mt-10'>
 
-                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 gap-5'>
-                    <div className='border p-5'>
-                       <img src="" alt="" />
+                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 items-center gap-5'>
+                    <div className='border '>
+                        <img className='w-full' src="/influencer/Home/campaignIcons/uploadedFiles.png" alt="" />
                     </div>
                     <div>
                         <h2 className="text-2xl font-semibold">Instagram</h2>
@@ -75,22 +76,15 @@ const CampaignsuploadedFiles = () => {
                                 />
                             </div>
                         </div>
+                        <Link to={'/influencer/feedbacks/fdgdfg'}>
+                            <button className='bg-[#344331] py-1 text-white rounded-lg w-full mt-10'>View Feedback </button>
+                        </Link>
                     </div>
-
-
                 </div>
 
-                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 gap-5'>
-                    <div className='border p-5'>
-                        <Dragger >
-                            <p className="ant-upload-drag-icon">
-                                {/* <InboxOutlined /> */}
-                            </p>
-                            <p className="ant-upload-text font-semibold !text-blue-800">Click to Upload</p>
-                            <p className="ant-upload-hint">
-                                or drag and drop
-                            </p>
-                        </Dragger>
+                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 items-center gap-5'>
+                    <div className='border '>
+                        <img className='w-full' src="/influencer/Home/campaignIcons/uploadedFiles.png" alt="" />
                     </div>
                     <div>
                         <h2 className="text-2xl font-semibold">TikTok</h2>
@@ -145,22 +139,17 @@ const CampaignsuploadedFiles = () => {
                                 />
                             </div>
                         </div>
+                        <Link to={'/influencer/feedbacks/fdgdfg'}>
+                            <button className='bg-[#344331] py-1 text-white rounded-lg w-full mt-10'>View Feedback </button>
+                        </Link>
                     </div>
 
 
                 </div>
 
-                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 gap-5'>
-                    <div className='border p-5'>
-                        <Dragger >
-                            <p className="ant-upload-drag-icon">
-                                {/* <InboxOutlined /> */}
-                            </p>
-                            <p className="ant-upload-text font-semibold !text-blue-800">Click to Upload</p>
-                            <p className="ant-upload-hint">
-                                or drag and drop
-                            </p>
-                        </Dragger>
+                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 items-center gap-5'>
+                    <div className='border '>
+                        <img className='w-full' src="/influencer/Home/campaignIcons/uploadedFiles.png" alt="" />
                     </div>
                     <div>
                         <h2 className="text-2xl font-semibold">Facebook</h2>
@@ -215,22 +204,17 @@ const CampaignsuploadedFiles = () => {
                                 />
                             </div>
                         </div>
+                        <Link to={'/influencer/feedbacks/fdgdfg'}>
+                            <button className='bg-[#344331] py-1 text-white rounded-lg w-full mt-10'>View Feedback </button>
+                        </Link>
                     </div>
 
 
                 </div>
 
-                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 gap-5'>
-                    <div className='border p-5'>
-                        <Dragger >
-                            <p className="ant-upload-drag-icon">
-                                {/* <InboxOutlined /> */}
-                            </p>
-                            <p className="ant-upload-text font-semibold !text-blue-800">Click to Upload</p>
-                            <p className="ant-upload-hint">
-                                or drag and drop
-                            </p>
-                        </Dragger>
+                <div className=' bg-[#fffdf9]  p-5  grid grid-cols-2 items-center gap-5'>
+                    <div className='border '>
+                        <img className='w-full' src="/influencer/Home/campaignIcons/uploadedFiles.png" alt="" />
                     </div>
                     <div>
                         <h2 className="text-2xl font-semibold">YouTube</h2>
@@ -285,12 +269,12 @@ const CampaignsuploadedFiles = () => {
                                 />
                             </div>
                         </div>
+                        <Link to={'/influencer/feedbacks/fdgdfg'}>
+                            <button className='bg-[#344331] py-1 text-white rounded-lg w-full mt-10'>View Feedback </button>
+                        </Link>
                     </div>
 
-
                 </div>
-
-
             </div>
         </div>
     );
