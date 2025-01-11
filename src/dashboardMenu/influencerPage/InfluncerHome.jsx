@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { Area, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
