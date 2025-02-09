@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Area, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
+import { Modal } from 'antd';
+import { FaChevronLeft } from 'react-icons/fa6';
 
 const InfluncerHome = () => {
+
+    const [isModalVisible, setIsModalVisible] = useState(false); // State to control Modal visibility
+
+    const showModal = () => {
+        setIsModalVisible(true); // Set modal visible
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false); // Hide modal when 'OK' is clicked
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false); // Hide modal when 'Cancel' is clicked
+    };
+
+
     const config = {
         data: {
             type: 'fetch',
@@ -28,19 +46,19 @@ const InfluncerHome = () => {
     const config2 = {
         data: {
             type: 'fetch',
-            value: 'https://gw.alipayobjects.com/os/bmw-prod/be63e0a2-d2be-4c45-97fd-c00f752a66d4.json',
+            value: 'https:// .alipayobjects.com/os/bmw-prod/be63e0a2-d2be-4c45-97fd-c00f752a66d4.json',
         },
         style: {
-            fill: '#da7122',
+            fill: '#583333',
         },
         xField: '城市',
         yField: '销售额',
         scrollbar: {
-            x: { ratio: 0.05 },
+            x: { ratio: 0.008 },
         },
         columnStyle: (datum) => {
             return {
-                fill: datum.sales > 2000 ? '#da7122' : '#f4b598', // Example condition
+                fill: datum.sales > 2000 ? '#583333' : '#583333', // Example condition
             };
         },
     };
@@ -92,60 +110,109 @@ const InfluncerHome = () => {
                 </div>
             </div>
             <div>
-                <div className=" bg-white rounded-lg">
+                <div className=" bg-white rounded-lg mb-5">
 
                     <div className='grid md:grid-cols-2 gap-2 grid-cols-1 lg:gap-2 xl:gap-3 w-full'>
 
                         <div className="overflow-x-auto bg-[#f3f4f6] rounded-lg px-5">
-                            <h2 className="text-2xl font-semibold py-5">Recent Campaigns</h2>
-
-                            <table className="min-w-full bg-gray-100">
-                                <thead className="bg-[#1b1b1b] text-white">
-                                    <tr>
-                                        <th className="px-4 py-2 text-left font-semibold first:rounded-tl-lg  ">SL</th>
-                                        <th className="px-4 py-2 text-left font-semibold">Campaign Name</th>
-                                        <th className="px-4 py-2 text-left font-semibold">Client Name</th>
-                                        <th className="px-4 py-2 text-left font-semibold">Starting Time</th>
-                                        <th className="px-4 py-2 text-left font-semibold">Deadline</th>
-                                        <th className="px-4 py-2 text-left font-semibold last:rounded-tr-lg">Payment</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {[
-                                        {
-                                            sl: 1,
-                                            campaignName: "Holiday Music Campaign",
-                                            clientName: "TrendyX",
-                                            startingTime: "12/12/2025",
-                                            deadline: "20/12/2025",
-                                            payment: "$1,200",
-                                        },
-                                        {
-                                            sl: 2,
-                                            campaignName: "Holiday Music Campaign",
-                                            clientName: "TrendyX",
-                                            startingTime: "12/12/2025",
-                                            deadline: "20/12/2025",
-                                            payment: "$1,200",
-                                        },
-                                    ].map((campaign, index) => (
-                                        <tr
-                                            key={index}
-                                            className="cursor-pointer hover:bg-gray-200"
-                                            onClick={() => window.location.href = `/influencer/campaignsdetails/${campaign.sl}`}
-                                        >
-                                            <td className="px-4 py-3">{campaign.sl}</td>
-                                            <td className="px-4 py-3">{campaign.campaignName}</td>
-                                            <td className="px-4 py-3">{campaign.clientName}</td>
-                                            <td className="px-4 py-3">{campaign.startingTime}</td>
-                                            <td className="px-4 py-3">{campaign.deadline}</td>
-                                            <td className="px-4 py-3">{campaign.payment}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-
-                            </table>
+                            <h2 className="text-2xl font-semibold py-5">Active Campaigns</h2>
+                            <div className='flex gap-5 my-5'>
+                                <div className='w-2/5'>
+                                    <img className='w-full h-full rounded-xl' src="/influencer/Home/Rectangle-2.png" alt="" />
+                                </div>
+                                <div>
+                                    <h3 className='text-2xl font-semibold mb-2'>Holiday Music Campaign</h3>
+                                    <p className='text-sm '><span className='font-semibold'>Details:</span> Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla </p>
+                                    <p className='text-sm mt-2'><span className='font-semibold'>Targeted Timeline:</span> 24 January, 2025 - 30 January 2025</p>
+                                    <button
+                                        onClick={showModal}
+                                        className='mt-5 w-full border border-black text-black px-10 py-3 rounded-lg'>
+                                        Go to Campaign
+                                    </button>
+                                </div>
+                            </div>
+                            <div className='flex gap-5 my-5'>
+                                <div className='w-2/5'>
+                                    <img className='w-full h-full rounded-xl' src="/influencer/Home/Rectangle-2.png" alt="" />
+                                </div>
+                                <div>
+                                    <h3 className='text-2xl font-semibold mb-2'>Holiday Music Campaign</h3>
+                                    <p className='text-sm '><span className='font-semibold'>Details:</span> Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla </p>
+                                    <p className='text-sm mt-2'><span className='font-semibold'>Targeted Timeline:</span> 24 January, 2025 - 30 January 2025</p>
+                                    <button
+                                        onClick={showModal}
+                                        className='mt-5 w-full border border-black text-black px-10 py-3 rounded-lg'>
+                                        Go to Campaign
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+
+                        <Modal
+                            visible={isModalVisible}
+                            onOk={handleOk} // Close modal when 'OK' is clicked
+                            onCancel={handleCancel} // Close modal when 'Cancel' is clicked
+                            footer={null} // We won't use footer
+                            width={700}
+                            closable={false} // Removes the close (cancel) icon
+                        >
+                            <div>
+                                <button onClick={handleCancel} className='text-3xl font-semibold mb-5 flex items-center gap-3'> <FaChevronLeft />
+                                    Holiday Music Campaign</button>
+                                <div>
+                                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
+                                        <div>
+                                            <div className='grid grid-cols-2 gap-5'>
+                                                <img src="/influencer/Home/Rectangle-2.png" alt="" />
+                                                <div>
+                                                    <h2 className='text-xl font-semibold'>Campaign Name</h2>
+                                                    <h2 className='text-3xl my-3 font-semibold'>Holiday Music Campaign</h2>
+                                                    <p className='my-3 block text-gray-500 font-semibold '>TikTok Sound Link</p>
+                                                    <button className='border border-black px-5 py-3 rounded-xl'>Go to Media</button>
+                                                </div>
+                                            </div>
+                                            <hr className='bg-secondary my-5 h-[2px] border-none' />
+                                            <div className=''>
+                                                <h3>Campaign Details</h3>
+                                                <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos</p>
+                                            </div>
+
+                                            <div className='my-5 grid grid-cols-2 gap-x-5 gap-y-8'>
+                                                <div>
+                                                    <h3 className=' font-semibold'>Client</h3>
+                                                    <h2 className='text-3xl font-semibold'>TrendyX</h2>
+                                                </div>
+                                                <div>
+                                                    <h3 className=' font-semibold'>Target Starting Date</h3>
+                                                    <h2 className='text-3xl font-semibold'>01/01/2025</h2>
+                                                </div>
+                                                <div>
+                                                    <h3 className=' font-semibold'>Budget</h3>
+                                                    <h2 className='text-3xl font-semibold'>$1,200</h2>
+                                                </div>
+                                                <div>
+                                                    <h3 className=' font-semibold'>Target Ending Date</h3>
+                                                    <h2 className='text-3xl font-semibold'>01/01/2025</h2>
+                                                </div>
+                                            </div>
+
+
+                                            <div className='mt-5'>
+                                                <span className='font-semibold mb-2'>Uploaded Media</span>
+                                                <audio controls className='w-full ' src="/influencer/Home/campaignIcons/campainAudio.mp3" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button className='mt-5 w-full bg-[#583333] text-white font-semibold px-10 py-3 rounded-lg'>
+                                        Accept
+                                    </button>
+                                </div>
+
+                            </div>
+                        </Modal>
+
+
+
                         <div className='bg-[#f3f4f6] rounded-lg p-10 grid grid-cols-2 gap-5 items-center'>
                             <img className='w-full' src="/influencer/Home/HomePageAnnouncement.png" alt="" />
                             <div>

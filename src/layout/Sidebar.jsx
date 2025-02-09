@@ -3,10 +3,11 @@ import logo from "/Common/musicMarketingLogo.png";
 
 import {
   FaRegUser,
+  FaSackDollar,
   FaUsers,
 } from "react-icons/fa6";
 
-import { BiSolidDashboard } from "react-icons/bi";
+import { BiSolidDashboard, BiUserCircle } from "react-icons/bi";
 import { CiSettings } from "react-icons/ci";
 import Swal from "sweetalert2";
 import { IoIosLogOut } from "react-icons/io";
@@ -78,11 +79,31 @@ const Sidebar = () => {
               <span className="hidden ml-2 sm:block">Campaigns</span>
             </NavLink>
 
+            <NavLink
+              to="earnings"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
+                  : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+              }
+            >
+              <FaSackDollar className="h-7 w-7 lg:h-5 lg:w-5" />
+              <span className="hidden ml-2 sm:block">Earnings</span>
+            </NavLink>
+
+            <NavLink
+              to="profile"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
+                  : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+              }
+            >
+              <BiUserCircle className="h-7 w-7 lg:h-5 lg:w-5" />
+              <span className="hidden ml-2 sm:block">Profile</span>
+            </NavLink>
 
 
-         
-         
-            
             <div className="mt-20">
               <div
                 onClick={handleLogOut}

@@ -23,12 +23,41 @@ import Campaigns from "../dashboardMenu/influencerPage/Campaigns";
 import Campaignsupload from "../dashboardMenu/influencerPage/Campaignsupload";
 import CampaignsuploadedFiles from "../dashboardMenu/influencerPage/CampaignsuploadedFiles";
 import Feedbacks from "../dashboardMenu/influencerPage/Feedbacks";
+import SelectRole from "../auth/SelectRole";
+import SignUpInfluencer from "../auth/SignUpInfluencer";
+import SignUpManager from "../auth/SignUpManager";
+import FeedbacksUpload from "../dashboardMenu/influencerPage/FeedbacksUpload";
+import Earnings from "../dashboardMenu/influencerPage/Earnings";
+import InfluncerProfile from "../dashboardMenu/influencerPage/InfluncerProfile";
+import InfluncerProfileEditprofile from "../dashboardMenu/influencerPage/InfluncerProfileEditprofile";
+import ClientHome from "../dashboardMenu/Client/ClientHome";
+import ClientMain from "../dashboardMenu/Client/ClientMain";
+import ClientCampaignsCreate from "../dashboardMenu/Client/ClientCampaignsCreate";
+import ClientCampaigns from "../dashboardMenu/Client/ClientCampaigns";
+import ClientCampaignsCompleted from "../dashboardMenu/Client/ClientCampaignsCompleted";
+import ClientCampaignsCompletedViewUgc from "../dashboardMenu/Client/ClientCampaignsCompletedViewUgc";
+import ClientCampaignsActiveViewUgc from "../dashboardMenu/Client/ClientCampaignsActiveViewUgc";
+import ClientCampaignsCompletedViewUgcViewDraft from "../dashboardMenu/Client/ClientCampaignsCompletedViewUgcViewDraft";
+import ClientInfluencers from "../dashboardMenu/Client/ClientInfluencers";
+import ClientInfluencerProfile from "../dashboardMenu/Client/ClientInfluencerProfile";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <SelectRole />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <Home></Home>,
+  },
+  {
+    path: "/signup-influencer",
+    element: <SignUpInfluencer />,
+  },
+  {
+    path: "/signup-manager",
+    element: <SignUpManager />,
   },
   {
     path: "forgotpassword",
@@ -71,9 +100,40 @@ export const router = createBrowserRouter([
         element: <Feedbacks />,
       },
       {
+        path: "feedbacks/upload/:id",
+        element: <FeedbacksUpload />,
+      },
+      {
         path: "campaigns",
         element: <Campaigns />,
       },
+      {
+        path: 'campaigns/uploadcampaign',
+        element: <Campaignsupload />
+      },
+      {
+        path: 'earnings',
+        element: <Earnings />
+      },
+
+      {
+        path: 'profile',
+        element: <InfluncerProfile />,
+      },
+      {
+        path: 'profile/editprofile',
+        element: <InfluncerProfileEditprofile />,
+      },
+
+
+
+
+
+
+
+
+
+
       {
         path: "userslist",
         element: <ApprovedUsers />,
@@ -113,4 +173,57 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/client",
+    element: <ClientMain />,
+    children: [
+      {
+        path: "home",
+        element: <ClientHome />,
+      },
+      {
+        path: "campaigns",
+        element: <ClientCampaigns />,
+      },
+      {
+        path: "campaigns/create",
+        element: <ClientCampaignsCreate />,
+      },
+      {
+        path: "campaigns/edit",
+        element: <ClientCampaignsCreate />,
+      },
+      {
+        path: "campaigns/completed/:id",
+        element: <ClientCampaignsCompleted />,
+      },
+      {
+        path: "campaigns/completed/view-ugc",
+        element: <ClientCampaignsCompletedViewUgc />,
+      },
+      {
+        path: "campaigns/completed/view-ugc/:id",
+        element: <ClientCampaignsCompletedViewUgcViewDraft />,
+      },
+      {
+        path: "campaigns/active/view-ugc/:id",
+        element: <ClientCampaignsActiveViewUgc />,
+      },
+      {
+        path: "campaigns/active/view-ugc",
+        element: <ClientCampaignsActiveViewUgc />,
+      },
+
+
+      {
+        path: "influencers",
+        element: <ClientInfluencers />,
+      },
+      {
+        path: "influencers/:id",
+        element: <ClientInfluencerProfile />,
+      },
+    ],
+
+  }
 ]);

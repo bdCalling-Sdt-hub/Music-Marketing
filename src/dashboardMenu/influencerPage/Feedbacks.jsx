@@ -20,7 +20,7 @@ const Feedbacks = () => {
                         </div>
                     </div>
                     <p className='text-white py-5'>Dorem ipsum dolor sit amet, consectetur adipiscing elit. Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <Link to={'/influencer/campaignsupload/sdfkj'} className='bg-white py-3 px-10 rounded-lg font-semibold'>Upload New File</Link>
+                    <Link to={'/influencer/feedbacks/upload/sdf456sdf'} className='bg-white py-3 px-10 rounded-lg font-semibold'>Upload New File</Link>
                 </div>
                 <div className='bg-primary rounded-lg p-5'>
                     <div className=' flex gap-5 text-white'>
@@ -33,7 +33,7 @@ const Feedbacks = () => {
                         </div>
                     </div>
                     <p className='text-white py-5'>Dorem ipsum dolor sit amet, consectetur adipiscing elit. Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <Link to={'/influencer/campaignsupload/sdfkj'} className='bg-white py-3 px-10 rounded-lg font-semibold'>Upload New File</Link>
+                    <Link to={'/influencer/feedbacks/upload/sdf456sdf'} className='bg-white py-3 px-10 rounded-lg font-semibold'>Upload New File</Link>
                 </div>
             </div>
         </div>

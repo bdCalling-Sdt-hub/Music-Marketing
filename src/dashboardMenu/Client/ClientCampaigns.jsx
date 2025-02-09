@@ -40,7 +40,7 @@ const campaignsData = [
     }
 ];
 
-const Campaigns = () => {
+const ClientCampaigns = () => {
     const [selectedTab, setSelectedTab] = useState('active');
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [modalContent, setModalContent] = useState({});
@@ -66,8 +66,8 @@ const Campaigns = () => {
 
     return (
         <div className="p-5">
-            <Link to={'/influencer/campaigns/uploadcampaign'} className='mb-10 flex items-center justify-end'>
-                <button className='py-3 px-10 rounded-xl bg-[#344331] text-white'>View Drafts</button>
+            <Link to={'/client/campaigns/create'} className='mb-10 flex items-center justify-end'>
+                <button className='py-3 px-10 rounded-xl bg-[#344331] text-white'>Create Campaign</button>
             </Link>
             {/* Tabs Section */}
             <div className="flex justify-between mb-5 border-b-2 border-black">
@@ -115,18 +115,88 @@ const Campaigns = () => {
                         <div className={` ${campaign && campaign.status === 'active' ? 'bg-[#63abfd]' : campaign && campaign.status === 'upcoming' ? 'bg-[#FFC107]' : 'bg-[#22af06]'} inline text-white text-xs font-medium mr-2 px-2.5 py-1 relative top-[-10px] `}>
                             {campaign && campaign.status === 'active' ? 'Active' : campaign && campaign.status === 'upcoming' ? 'Upcoming' : 'Completed'}
                         </div>
-                        <div className="flex items-center w-full gap-5">
-                            <img src={campaign.image} alt={campaign.name} className="w-1/4 h-full rounded-lg" />
+
+                        <div className="flex w-full gap-5">
+                            <div className='w-1/4'>
+                                <img src={campaign.image} alt={campaign.name} className=" rounded-lg" />
+                                {
+                                    campaign && campaign.status === 'active' &&
+                                    <div className='flex flex-col text-center'>
+                                        <button
+                                            onClick={() => showModal(campaign)}
+                                            className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
+                                        >
+                                            Go to Campaign
+                                        </button>
+                                        <Link to={'/client/campaigns/active/view-ugc'} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                    </div>
+                                }
+                                {
+                                    campaign && campaign.status === 'completed' &&
+                                    <div className='flex flex-col text-center' >
+                                        <Link
+                                            to={`/client/campaigns/completed/${campaign.id}`} 
+                                            className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
+                                        >
+                                            Go to Campaign
+                                        </Link>
+                                        <Link to={`/client/campaigns/completed/view-ugc`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                    </div>
+                                }
+                            </div>
                             <div className="flex-1">
-                                <h3 className="text-xl font-semibold">{campaign.name}</h3>
-                                <p className="text-sm mt-2">{campaign.details}</p>
+                                <h3 className="text-4xl font-semibold">{campaign.name}</h3>
+                                <p className="text-sm my-5"><span className='font-semibold'>Details:</span> Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia </p>
                                 <p className="text-sm mt-2"><span className="font-semibold">Targeted Timeline:</span> {campaign.timeline}</p>
-                                <button
-                                    onClick={() => showModal(campaign)}
-                                    className="mt-5 w-auto border border-black text-black px-20 py-3 rounded-lg"
-                                >
-                                    Go to Campaign
-                                </button>
+
+                                {
+                                    campaign && campaign.status !== 'upcoming' &&
+                                    <div>
+                                        <div className='mt-8 flex justify-between'>
+                                            <div>
+                                                <h2>Influencer Assigned</h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                            <div>
+                                                <h2>Joined Influencers</h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                            <div>
+                                                <h2>Pending Approval</h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                            <div>
+                                                <h2>Total Impressions</h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                            <div>
+                                                <h2>Budget </h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+                                {
+                                    campaign && campaign.status === 'upcoming' &&
+                                    <div className='mt-8 flex justify-between'>
+                                        <div className='flex items-center gap-10'>
+                                            <div>
+                                                <h2>Influencer Assigned</h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                            <div>
+                                                <h2>Joined Influencers</h2>
+                                                <h3 className='font-semibold text-xl'>1500</h3>
+                                            </div>
+                                        </div>
+                                        <button className='bg-[#ff8225] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
+                                            Waiting for
+                                            Admin Approval
+                                        </button>
+                                    </div>
+
+                                }
                             </div>
                         </div>
                     </div>
@@ -144,13 +214,8 @@ const Campaigns = () => {
                 closable={false}
             >
                 <div>
-                    {/* <h3>Details:</h3>
-                    <p>{modalContent.details}</p>
-                    <p><strong>Timeline:</strong> {modalContent.timeline}</p> */}
 
                     <div>
-                        <button onClick={handleCancel} className='text-3xl font-semibold mb-5 flex items-center gap-3'> <FaChevronLeft />
-                            {modalContent.name}</button>
 
                         <div>
                             <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
@@ -196,20 +261,13 @@ const Campaigns = () => {
                                     </div>
                                 </div>
                             </div>
-                            {
-                                modalContent.status === 'active' &&
-                                <button button className='mt-5 w-full bg-[#583333] text-white font-semibold px-10 py-3 rounded-lg'>
-                                    Accept
-                                </button>
-                            }
+
                         </div>
-
                     </div>
-
                 </div>
             </Modal >
         </div >
     );
 };
 
-export default Campaigns;
+export default ClientCampaigns;
