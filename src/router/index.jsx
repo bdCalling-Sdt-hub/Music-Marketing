@@ -40,6 +40,10 @@ import ClientCampaignsActiveViewUgc from "../dashboardMenu/Client/ClientCampaign
 import ClientCampaignsCompletedViewUgcViewDraft from "../dashboardMenu/Client/ClientCampaignsCompletedViewUgcViewDraft";
 import ClientInfluencers from "../dashboardMenu/Client/ClientInfluencers";
 import ClientInfluencerProfile from "../dashboardMenu/Client/ClientInfluencerProfile";
+import ClientInfluencerInfluencerActivity from "../dashboardMenu/Client/ClientInfluencerInfluencerActivity";
+import ClientSingleInfluencerActivity from "../dashboardMenu/Client/ClientSingleInfluencerActivity";
+import ClientInfluencerProfileDetails from "../dashboardMenu/Client/ClientInfluencerProfileDetails";
+import ClientInfluencerProfileDetailsEdit from "../dashboardMenu/Client/ClientInfluencerProfileDetailsEdit";
 
 export const router = createBrowserRouter([
   {
@@ -124,11 +128,6 @@ export const router = createBrowserRouter([
         path: 'profile/editprofile',
         element: <InfluncerProfileEditprofile />,
       },
-
-
-
-
-
 
 
 
@@ -223,6 +222,24 @@ export const router = createBrowserRouter([
         path: "influencers/:id",
         element: <ClientInfluencerProfile />,
       },
+      {
+        path: "influencers/influencer-activity/:id",
+        element: <ClientInfluencerInfluencerActivity />,
+      },
+      {
+        path: "influencers/single-influencer-activity/:id",
+        element: <ClientSingleInfluencerActivity />,
+      },
+
+      {
+        path: "profile",
+        element: <ClientInfluencerProfileDetails />,
+      },
+      {
+        path: "profile/editprofile",
+        element: <ClientInfluencerProfileDetailsEdit />,
+      }
+
     ],
 
   }

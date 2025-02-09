@@ -12,6 +12,7 @@ import { CiSettings } from "react-icons/ci";
 import Swal from "sweetalert2";
 import { IoIosLogOut } from "react-icons/io";
 import { GrAnnounce } from "react-icons/gr";
+import { PiUserFocus } from "react-icons/pi";
 
 
 const Sidebar = () => {
@@ -99,7 +100,7 @@ const Sidebar = () => {
                   : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
               }
             >
-              <BiUserCircle className="h-7 w-7 lg:h-5 lg:w-5" />
+              <PiUserFocus className="h-7 w-7 lg:h-5 lg:w-5" />
               <span className="hidden ml-2 sm:block">Profile</span>
             </NavLink>
 
