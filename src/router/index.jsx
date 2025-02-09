@@ -44,6 +44,12 @@ import ClientInfluencerInfluencerActivity from "../dashboardMenu/Client/ClientIn
 import ClientSingleInfluencerActivity from "../dashboardMenu/Client/ClientSingleInfluencerActivity";
 import ClientInfluencerProfileDetails from "../dashboardMenu/Client/ClientInfluencerProfileDetails";
 import ClientInfluencerProfileDetailsEdit from "../dashboardMenu/Client/ClientInfluencerProfileDetailsEdit";
+import AdminMain from "../dashboardMenu/Admin/AdminMain";
+import AdminHome from "../dashboardMenu/Admin/AdminHome";
+import AdminCampaigns from "../dashboardMenu/Admin/AdminCampaigns";
+import AdminCampaignsCreate from "../dashboardMenu/Admin/AdminCampaignsCreate";
+import AdminClients from "../dashboardMenu/Admin/AdminClients";
+import AdminClientsRemove from "../dashboardMenu/Admin/AdminClientsRemove";
 
 export const router = createBrowserRouter([
   {
@@ -242,5 +248,36 @@ export const router = createBrowserRouter([
 
     ],
 
+  },
+  {
+    path: "/admin",
+    element: <AdminMain />,
+    children: [
+      {
+        path: "home",
+        element: <AdminHome />,
+      },
+      {
+        path: "campaigns",
+        element: <AdminCampaigns />,
+      },
+      {
+        path: "campaigns/create",
+        element: <AdminCampaignsCreate />,
+      },
+
+
+
+
+
+      {
+        path: "clients",
+        element: <AdminClients />,
+      },
+      {
+        path: "clients/remove",
+        element: <AdminClientsRemove />,
+      },
+    ]
   }
 ]);
