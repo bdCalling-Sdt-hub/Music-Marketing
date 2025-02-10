@@ -91,6 +91,7 @@ const Sidebar = () => {
               <FaSackDollar className="h-7 w-7 lg:h-5 lg:w-5" />
               <span className="hidden ml-2 sm:block">Earnings</span>
             </NavLink>
+ 
 
             <NavLink
               to="profile"

@@ -130,19 +130,19 @@ const AdminCampaigns = () => {
                                         >
                                             Go to Campaign
                                         </button>
-                                        <Link to={'/client/campaigns/active/view-ugc'} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                        <Link to={'/admin/campaigns/active/view-ugc'} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
                                     </div>
                                 }
                                 {
                                     campaign && campaign.status === 'completed' &&
                                     <div className='flex flex-col text-center' >
                                         <Link
-                                            to={`/client/campaigns/completed/${campaign.id}`}
+                                            to={`/admin/campaigns/completed/${campaign.id}`}
                                             className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
                                         >
                                             Go to Campaign
                                         </Link>
-                                        <Link to={`/client/campaigns/completed/view-ugc`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                        <Link to={`/admin/campaigns/completed/view-ugc`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
                                     </div>
                                 }
                             </div>

@@ -50,6 +50,26 @@ import AdminCampaigns from "../dashboardMenu/Admin/AdminCampaigns";
 import AdminCampaignsCreate from "../dashboardMenu/Admin/AdminCampaignsCreate";
 import AdminClients from "../dashboardMenu/Admin/AdminClients";
 import AdminClientsRemove from "../dashboardMenu/Admin/AdminClientsRemove";
+import ClientCampaignsCompletedViewUgcViewDraftViewFeedback from "../dashboardMenu/Client/ClientCampaignsCompletedViewUgcViewDraftViewFeedback";
+import ClientCampaignsActiveViewUgcViewDraft from "../dashboardMenu/Client/ClientCampaignsActiveViewUgcViewDraft";
+import AdminCampaignsEdit from "../dashboardMenu/Admin/AdminCampaignsEdit";
+import AdminCampaignsCompletedViewUgcViewDraftViewFeedback from "../dashboardMenu/Admin/AdminCampaignsCompletedViewUgcViewDraftViewFeedback";
+import AdminCampaignsCompletedViewUgcViewDraft from "../dashboardMenu/Admin/AdminCampaignsCompletedViewUgcViewDraft";
+import AdminCampaignsCompletedViewUgc from "../dashboardMenu/Admin/AdminCampaignsCompletedViewUgc";
+import AdminCampaignsCompleted from "../dashboardMenu/Admin/AdminCampaignsCompleted";
+import AdminCampaignsActive from "../dashboardMenu/Admin/AdminCampaignsActive";
+import AdminCampaignsActiveViewUgc from "../dashboardMenu/Admin/AdminCampaignsActiveViewUgc";
+import AdminCampaignsActiveViewUgcViewDraft from "../dashboardMenu/Admin/AdminCampaignsActiveViewUgcViewDraft";
+import AdminCampaignsActiveViewUgcViewDraftViewFeedback from "../dashboardMenu/Admin/AdminCampaignsActiveViewUgcViewDraftViewFeedback";
+import AdminInfluencer from "../dashboardMenu/Admin/AdminInfluencer";
+import AdminInfluencerRemove from "../dashboardMenu/Admin/AdminInfluencerRemove";
+import AdminInfluencerProfile from "../dashboardMenu/Admin/AdminInfluencerProfile";
+import AdminInfluencerInfluencerActivity from "../dashboardMenu/Admin/AdminInfluencerInfluencerActivity";
+import AdminSingleInfluencerActivity from "../dashboardMenu/Admin/AdminSingleInfluencerActivity";
+import AdminInfluencerPay from "../dashboardMenu/Admin/AdminInfluencerPay";
+import AdminInfluencerPaySuccess from "../dashboardMenu/Admin/AdminInfluencerPaySuccess";
+import AdminTransactions from "../dashboardMenu/Admin/AdminTransactions";
+import AdminProfile from "../dashboardMenu/Admin/AdminProfile";
 
 export const router = createBrowserRouter([
   {
@@ -211,12 +231,20 @@ export const router = createBrowserRouter([
         element: <ClientCampaignsCompletedViewUgcViewDraft />,
       },
       {
-        path: "campaigns/active/view-ugc/:id",
-        element: <ClientCampaignsActiveViewUgc />,
+        path: "campaigns/completed/view-feedback",
+        element: <ClientCampaignsCompletedViewUgcViewDraftViewFeedback />,
       },
       {
         path: "campaigns/active/view-ugc",
         element: <ClientCampaignsActiveViewUgc />,
+      },
+      {
+        path: "campaigns/active/view-ugc/:id",
+        element: <ClientCampaignsActiveViewUgcViewDraft />,
+      },
+      {
+        path: "campaigns/active/view-feedback",
+        element: <ClientCampaignsCompletedViewUgcViewDraftViewFeedback />,
       },
 
 
@@ -236,6 +264,8 @@ export const router = createBrowserRouter([
         path: "influencers/single-influencer-activity/:id",
         element: <ClientSingleInfluencerActivity />,
       },
+
+
 
       {
         path: "profile",
@@ -265,9 +295,48 @@ export const router = createBrowserRouter([
         path: "campaigns/create",
         element: <AdminCampaignsCreate />,
       },
+      {
+        path: "campaigns/edit",
+        element: <AdminCampaignsEdit />,
+      },
 
 
 
+      {
+        path: "campaigns/completed/:id",
+        element: <AdminCampaignsCompleted />,
+      },
+      {
+        path: "campaigns/completed/view-ugc",
+        element: <AdminCampaignsCompletedViewUgc />,
+      },
+      {
+        path: "campaigns/completed/view-ugc/:id",
+        element: <AdminCampaignsCompletedViewUgcViewDraft />,
+      },
+      {
+        path: "campaigns/completed/view-feedback",
+        element: <AdminCampaignsCompletedViewUgcViewDraftViewFeedback />,
+      },
+
+
+
+      {
+        path: "campaigns/active/:id",
+        element: <AdminCampaignsActive />,
+      },
+      {
+        path: "campaigns/active/view-ugc",
+        element: <AdminCampaignsActiveViewUgc />,
+      },
+      {
+        path: "campaigns/active/view-ugc/:id",
+        element: <AdminCampaignsActiveViewUgcViewDraft />,
+      },
+      {
+        path: "campaigns/active/view-feedback",
+        element: <AdminCampaignsActiveViewUgcViewDraftViewFeedback />,
+      },
 
 
       {
@@ -278,6 +347,54 @@ export const router = createBrowserRouter([
         path: "clients/remove",
         element: <AdminClientsRemove />,
       },
+
+
+
+      {
+        path: "influencers",
+        element: <AdminInfluencer />,
+      },
+      {
+        path: "influencers/pay",
+        element: <AdminInfluencerPay />,
+      },
+      {
+        path: "influencers/pay-success",
+        element: <AdminInfluencerPaySuccess />,
+      },
+      {
+        path: "influencers/remove",
+        element: <AdminInfluencerRemove />,
+      },
+      {
+        path: "influencers/profile/:id",
+        element: <AdminInfluencerProfile />,
+      },
+      {
+        path: "influencers/influencer-activity/:id",
+        element: <AdminInfluencerInfluencerActivity />,
+      },
+      {
+        path: "influencers/single-influencer-activity/:id",
+        element: <AdminSingleInfluencerActivity />,
+      },
+
+
+      {
+        path: "transactions",
+        element: <AdminTransactions />
+      },
+
+      {
+        path: "profile",
+        element: <AdminProfile />
+      }
+
+
+
+
+
+
     ]
   }
 ]);

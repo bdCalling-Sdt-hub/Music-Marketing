@@ -8,21 +8,23 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { FiFolderPlus } from "react-icons/fi";
 import { BiSolidCloudUpload } from "react-icons/bi";
+import { GiCancel } from "react-icons/gi";
 
 const { TextArea } = Input;
 const { Option } = Select;
 
-const AdminCampaignsCreate = () => {
+const AdminCampaignsEdit = () => {
     const [tikTokUrl, setTikTokUrl] = useState("");
     const [soundUrl, setSoundUrl] = useState("");
 
     const handleTikTokUpload = () => {
         console.log("Uploading TikTok URL:", tikTokUrl);
+        setTikTokUrl('')
         // Add your upload logic here
     };
 
     const handleSoundUpload = () => {
-        console.log("Uploading Sound URL:", soundUrl);
+        setSoundUrl('')
         // Add your upload logic here
     };
 
@@ -138,11 +140,16 @@ const AdminCampaignsCreate = () => {
                         <Form.Item className="relative" name="tikTokLink">
                             {
                                 tikTokUrl &&
-                                <div className="flex items-center gap-3 my-3">
-                                    <BiSolidCloudUpload className="text-3xl text-gray-400" />
+                                <div className="flex items-center justify-between gap-3 my-3">
+                                    <div className="flex items-center gap-3">
+                                        <BiSolidCloudUpload className="text-3xl text-gray-400" />
+                                        <div>
+                                            <h2 className="font-semibold">Upload The Media of Song</h2>
+                                            <p className="text-gray-500">{tikTokUrl}</p>
+                                        </div>
+                                    </div>
                                     <div>
-                                        <h2 className="font-semibold">TikTok Sound Link</h2>
-                                        <p className="text-gray-500">{tikTokUrl}</p>
+                                        <GiCancel onClick={handleTikTokUpload} className="cursor-pointer text-2xl font-semibold text-red-600" />
                                     </div>
                                 </div>
                             }
@@ -161,11 +168,16 @@ const AdminCampaignsCreate = () => {
                         <Form.Item className="relative" name="soundLink">
                             {
                                 soundUrl &&
-                                <div className="flex items-center gap-3 my-3">
-                                    <BiSolidCloudUpload className="text-3xl text-gray-400" />
+                                <div className="flex items-center justify-between gap-3 my-3">
+                                    <div className="flex items-center gap-3">
+                                        <BiSolidCloudUpload className="text-3xl text-gray-400" />
+                                        <div>
+                                            <h2 className="font-semibold">Upload The Media of Song</h2>
+                                            <p className="text-gray-500">{soundUrl}</p>
+                                        </div>
+                                    </div>
                                     <div>
-                                        <h2 className="font-semibold">Upload The Media of Song</h2>
-                                        <p className="text-gray-500">{soundUrl}</p>
+                                        <GiCancel onClick={handleSoundUpload} className="cursor-pointer text-2xl font-semibold text-red-600" />
                                     </div>
                                 </div>
                             }
@@ -200,4 +212,4 @@ const AdminCampaignsCreate = () => {
     );
 };
 
-export default AdminCampaignsCreate;
+export default AdminCampaignsEdit;

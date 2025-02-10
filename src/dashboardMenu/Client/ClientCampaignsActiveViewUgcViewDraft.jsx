@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from 'react';
 import { Modal } from 'antd';
 import Slider from "react-slick";
@@ -34,7 +37,7 @@ const mediaData = [
     { platform: "Instagram", image: "/influencer/Home/Rectangle-3.png" },
 ];
 
-const ClientCampaignsCompletedViewUgcViewDraft = () => {
+const ClientCampaignsActiveViewUgcViewDraft = () => {
     const [isMediaModalVisible, setIsMediaModalVisible] = useState(false);
     const [isFeedbackModalVisible, setIsFeedbackModalVisible] = useState(false);
     const [feedback, setFeedback] = useState("");
@@ -129,4 +132,4 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
     );
 }
 
-export default ClientCampaignsCompletedViewUgcViewDraft;
+export default ClientCampaignsActiveViewUgcViewDraft;

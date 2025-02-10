@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Upload, DatePicker, Select, Checkbox, Row, Col } from "antd";
 import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
 import { FaAngleLeft, FaMusic } from "react-icons/fa6";
 import { RiSoundModuleFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { MdOutlineFileUpload } from "react-icons/md";
+import { TbWorld } from "react-icons/tb";
+import { FiFolderPlus } from "react-icons/fi";
 
 const { TextArea } = Input;
 const { Option } = Select;
 
 const ClientCampaignsCreate = () => {
-    const [form] = Form.useForm();
+    const [tikTokUrl, setTikTokUrl] = useState("");
+    const [soundUrl, setSoundUrl] = useState("");
 
+    const handleTikTokUpload = () => {
+        console.log("Uploading TikTok URL:", tikTokUrl);
+        // Add your upload logic here
+    };
+
+    const handleSoundUpload = () => {
+        console.log("Uploading Sound URL:", soundUrl);
+        // Add your upload logic here
+    };
+
+
+
+    const [form] = Form.useForm();
     const onFinish = (values) => {
         console.log("Form Values:", values);
     };
+
+
+
 
     return (
         <div className="p-5 bg-white ">
@@ -24,7 +44,7 @@ const ClientCampaignsCreate = () => {
                 layout="vertical"
                 onFinish={onFinish}
                 initialValues={{
-                    budget: "$1,200",
+                    budget: "1,200",
                     sendEmail: true,
                     platforms: ["Youtube", "Instagram"],
                 }}
@@ -110,23 +130,55 @@ const ClientCampaignsCreate = () => {
                         </div>
                     </div>
 
-                    {/* TikTok Sound Link */}
-                    <Form.Item label="TikTok Sound Link" name="tikTokLink">
-                        <Input
-                            className="py-2"
-                            placeholder="Paste the TikTok music URL"
-                            prefix={<FaMusic className="text-gray-500 text-lg mr-2" />}
-                        />
-                    </Form.Item>
 
-                    {/* General Sound Link */}
-                    <Form.Item label="Paste the Music URL" name="soundLink">
-                        <Input
-                            className="py-2"
-                            placeholder="Paste the music URL"
-                            prefix={<RiSoundModuleFill className="text-gray-500 text-lg mr-2" />}
-                        />
-                    </Form.Item>
+
+                    <Form layout="vertical">
+                        {/* TikTok Sound Link */}
+                        <Form.Item className="relative" name="tikTokLink">
+                            {
+                                tikTokUrl &&
+                                <div className="flex items-center gap-3 my-3">
+                                    <BiSolidCloudUpload className="text-3xl text-gray-400" />
+                                    <div>
+                                        <h2 className="font-semibold">TikTok Sound Link</h2>
+                                        <p className="text-gray-500">{tikTokUrl}</p>
+                                    </div>
+                                </div>
+                            }
+                            <div className="relative">
+                                <Input
+                                    className="py-2 pr-10"
+                                    placeholder="Paste the TikTok music URL"
+                                    value={tikTokUrl}
+                                    onChange={(e) => setTikTokUrl(e.target.value)}
+                                    prefix={<TbWorld className="text-gray-500 text-lg mr-2" />}
+                                />
+                            </div>
+                        </Form.Item>
+
+                        {/* General Sound Link */}
+                        <Form.Item className="relative" name="soundLink">
+                            {
+                                soundUrl &&
+                                <div className="flex items-center gap-3 my-3">
+                                    <BiSolidCloudUpload className="text-3xl text-gray-400" />
+                                    <div>
+                                        <h2 className="font-semibold">Upload The Media of Song</h2>
+                                        <p className="text-gray-500">{soundUrl}</p>
+                                    </div>
+                                </div>
+                            }
+                            <div className="relative">
+                                <Input
+                                    className="py-2 pr-10"
+                                    placeholder="Paste the music URL"
+                                    value={soundUrl}
+                                    onChange={(e) => setSoundUrl(e.target.value)}
+                                    prefix={<FiFolderPlus className="text-gray-500 text-lg mr-2" />}
+                                />
+                            </div>
+                        </Form.Item>
+                    </Form>
 
                     {/* Send Email Notification Checkbox */}
                     <Form.Item name="sendEmail" valuePropName="checked">

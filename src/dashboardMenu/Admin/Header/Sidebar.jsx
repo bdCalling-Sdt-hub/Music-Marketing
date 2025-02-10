@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa6";
 
 import { BiSolidDashboard, BiUserCircle } from "react-icons/bi";
-import { CiSettings } from "react-icons/ci";
+import { CiCreditCard2, CiSettings } from "react-icons/ci";
 import Swal from "sweetalert2";
 import { IoIosLogOut } from "react-icons/io";
 import { GrAnnounce } from "react-icons/gr";
@@ -17,7 +17,7 @@ import { PiUserFocus } from "react-icons/pi";
 
 const Sidebar = () => {
     const navigate = useNavigate();
-    const isActiveInfluencerRoute = location.pathname === "/client/influencers"; // Check if active
+    const isActiveInfluencerRoute = location.pathname === "/admin/influencers"; // Check if active
 
     const handleLogOut = () => {
         Swal.fire({
@@ -95,15 +95,12 @@ const Sidebar = () => {
 
                         <NavLink
                             to="influencers"
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
-                                    : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+                            className={isActiveInfluencerRoute
+                                ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
+                                : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
                             }
                         >
                             {/* <FaSackDollar className="h-7 w-7 lg:h-5 lg:w-5" /> */}
-
-
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill={!isActiveInfluencerRoute ? "#fff" : "#193664"}>
                                 <g clip-path="url(#clip0_931_3904)">
                                     <path d="M11.2498 3.38281C6.90282 3.38774 3.37993 6.91039 3.375 11.2575C3.37598 12.3615 3.61137 13.4527 4.06559 14.4589C4.19233 14.7424 4.52517 14.8697 4.80876 14.7429C5.09233 14.6161 5.21949 14.2833 5.09261 13.9997C4.70312 13.1379 4.50117 12.2032 4.50012 11.2575C4.50012 7.52971 7.52208 4.50769 11.2498 4.50769C14.9776 4.50769 17.9995 7.52971 17.9995 11.2575C17.9984 12.2032 17.7964 13.1379 17.4069 13.9997C17.2801 14.2833 17.4073 14.616 17.6909 14.7429C17.9745 14.8697 18.3074 14.7425 18.4342 14.4589C18.8884 13.4526 19.1237 12.3615 19.1246 11.2575C19.1196 6.91039 15.597 3.38774 11.2498 3.38281H11.2498Z" fill={!isActiveInfluencerRoute ? "#fff" : "#193664"} />
@@ -116,12 +113,21 @@ const Sidebar = () => {
                                     </clipPath>
                                 </defs>
                             </svg>
-
-
-
-
                             <span className="hidden ml-2 sm:block">influencers</span>
                         </NavLink>
+
+                        <NavLink
+                            to="transactions"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
+                                    : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+                            }
+                        >
+                            <CiCreditCard2 className="text-3xl" />
+                            <span className="hidden ml-2 sm:block">Transactions</span>
+                        </NavLink>
+
 
 
                         <NavLink

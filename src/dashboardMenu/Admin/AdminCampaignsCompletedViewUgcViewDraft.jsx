@@ -34,7 +34,7 @@ const mediaData = [
     { platform: "Instagram", image: "/influencer/Home/Rectangle-3.png" },
 ];
 
-const ClientCampaignsCompletedViewUgcViewDraft = () => {
+const AdminCampaignsCompletedViewUgcViewDraft = () => {
     const [isMediaModalVisible, setIsMediaModalVisible] = useState(false);
     const [isFeedbackModalVisible, setIsFeedbackModalVisible] = useState(false);
     const [feedback, setFeedback] = useState("");
@@ -129,4 +129,4 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
     );
 }
 
-export default ClientCampaignsCompletedViewUgcViewDraft;
+export default AdminCampaignsCompletedViewUgcViewDraft;

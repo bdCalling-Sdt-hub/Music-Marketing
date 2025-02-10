@@ -3,6 +3,7 @@ import { Area, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 import { Modal } from 'antd';
 import { FaChevronLeft } from 'react-icons/fa6';
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
 
 const InfluncerHome = () => {
 
@@ -43,25 +44,21 @@ const InfluncerHome = () => {
         },
     };
 
-    const config2 = {
-        data: {
-            type: 'fetch',
-            value: 'https:// .alipayobjects.com/os/bmw-prod/be63e0a2-d2be-4c45-97fd-c00f752a66d4.json',
-        },
-        style: {
-            fill: '#583333',
-        },
-        xField: '城市',
-        yField: '销售额',
-        scrollbar: {
-            x: { ratio: 0.008 },
-        },
-        columnStyle: (datum) => {
-            return {
-                fill: datum.sales > 2000 ? '#583333' : '#583333', // Example condition
-            };
-        },
-    };
+    // Payment Data
+    const paymentData = [
+        { month: "Jan", revenue: 10000 },
+        { month: "Feb", revenue: 25000 },
+        { month: "Mar", revenue: 45000 },
+        { month: "Apr", revenue: 38000 },
+        { month: "May", revenue: 20000 },
+        { month: "Jun", revenue: 15000 },
+        { month: "Jul", revenue: 22000 },
+        { month: "Aug", revenue: 36000 },
+        { month: "Sep", revenue: 40000 },
+        { month: "Oct", revenue: 45000 },
+        { month: "Nov", revenue: 43000 },
+        { month: "Dec", revenue: 60000 },
+    ];
 
 
 
@@ -90,25 +87,35 @@ const InfluncerHome = () => {
                 ))}
             </div>
 
-            <div className="grid lg:grid-cols-2 items-center md:gap-10 ">
-                {/* Client Overview 1 */}
-                <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[40vh]">
-                    <h2 className="mb-10 font-semibold text-xl">Campaign  Overview</h2>
-                    <div className="h-full w-full">
-                        {/* Ensure the Area chart takes up the full height available */}
+            <div className="grid lg:grid-cols-2 items-stretch md:gap-6">
+                {/* Campaign Overview Chart */}
+                <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[50vh] flex flex-col">
+                    <h2 className="mb-10 font-semibold text-xl">Campaign Overview</h2>
+                    <div className="flex-1"> {/* Ensures full height usage */}
                         <Area className="w-full h-full" {...config} />
                     </div>
                 </div>
 
-                {/* Client Overview 2 */}
-                <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[40vh]">
+                {/* Payment Chart */}
+                <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[50vh] flex flex-col">
                     <h2 className="mb-10 font-semibold text-xl">Payment</h2>
-                    <div className="h-full w-full">
-                        {/* Ensure the Area chart takes up the full height available */}
-                        <Column className="w-full h-full" {...config2} />
+                    <div className="flex-1"> {/* Ensures full height usage */}
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={paymentData}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="month" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="revenue" fill="#5D2C2C" />
+                            </BarChart>
+                        </ResponsiveContainer>
                     </div>
                 </div>
             </div>
+
+
+
             <div>
                 <div className=" bg-white rounded-lg mb-5">
 
@@ -228,6 +235,8 @@ const InfluncerHome = () => {
                 </div>
 
             </div>
+
+
         </div>
     );
 };
