@@ -1,4 +1,5 @@
-import React from "react";
+import { Modal } from "antd";
+import React, { useState } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 
 const engagementData = [
@@ -18,19 +19,32 @@ const campaignData = [
 ];
 
 const ClientHome = () => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [currentCampaign, setCurrentCampaign] = useState(null);
+
+    // Function to show the modal
+    const showModal = (campaign) => {
+        setCurrentCampaign(campaign);
+        setIsModalVisible(true);
+    };
+
+    // Function to handle modal close
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
     return (
         <div className="p-5">
             {/* Stats Section */}
             <div className="flex items-center gap-5 flex-wrap">
-                {[
-                    { title: "Total Influencers", value: "40,689", icon: "/influencer/Home/Icon.png" },
-                    { title: "Active Campaigns", value: "10,293", icon: "/influencer/Home/Icon1.png" },
-                    { title: "Total Campaigns", value: "$89,000", icon: "/influencer/Home/Icon1.png" }
-                ].map((stat, index) => (
-                    <div
-                        key={index}
-                        className="flex w-80 items-center gap-5 justify-between bg-primary text-white p-5 rounded-lg"
-                    >
+                {[{ title: "Total Influencers", value: "40,689", icon: "/influencer/Home/Icon.png" },
+                { title: "Active Campaigns", value: "10,293", icon: "/influencer/Home/Icon1.png" },
+                { title: "Total Campaigns", value: "$89,000", icon: "/influencer/Home/Icon1.png" }].map((stat, index) => (
+                    <div key={index} className="flex w-80 items-center gap-5 justify-between bg-primary text-white p-5 rounded-lg">
                         <div>
                             <h4 className="text-xl font-semibold text-gray-200 mb-3">{stat.title}</h4>
                             <h2 className="text-3xl font-semibold">{stat.value}</h2>
@@ -107,53 +121,81 @@ const ClientHome = () => {
                 </div>
             </div>
 
-
             <div>
                 <div className="flex justify-between my-8">
                     <h2 className="text-3xl font-semibold">Active Campaigns</h2>
-                    <button className="border border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View All</button>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
-                        <div className='grid grid-cols-2 gap-3'>
-                            <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
-                            <div>
-                                <h4 className="font-semibold text-lg mb-2">HOLIDAY MUSIC CAMPAIGN</h4>
-                                <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
-                                <h2 className='text-3xl font-semibold'>$1520</h2>
-                                <button className="border mt-3 w-full border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View Details</button>
+                    {["Campaign 1", "Campaign 2", "Campaign 3"].map((campaign, index) => (
+                        <div
+                            key={index}
+                            className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5"
+                        >
+                            <div className='grid grid-cols-2 gap-3'>
+                                <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
+                                <div>
+                                    <h4 className="font-semibold text-lg mb-2">{campaign} Campaign</h4>
+                                    <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
+                                    <h2 className='text-3xl font-semibold'>$1520</h2>
+                                    <button onClick={() => showModal(campaign)} className="border mt-3 w-full border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View Details</button>
+                                </div>
                             </div>
                         </div>
-                        {/* <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">View Details</button> */}
-                    </div>
-                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
-                        <div className='grid grid-cols-2 gap-3'>
-                            <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
-                            <div>
-                                <h4 className="font-semibold text-lg mb-2">HOLIDAY MUSIC CAMPAIGN</h4>
-                                <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
-                                <h2 className='text-3xl font-semibold'>$1520</h2>
-                                <button className="border mt-3 w-full border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View Details</button>
-                            </div>
-                        </div>
-                        {/* <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">View Details</button> */}
-                    </div>
-                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
-                        <div className='grid grid-cols-2 gap-3'>
-                            <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
-                            <div>
-                                <h4 className="font-semibold text-lg mb-2">HOLIDAY MUSIC CAMPAIGN</h4>
-                                <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
-                                <h2 className='text-3xl font-semibold'>$1520</h2>
-                                <button className="border mt-3 w-full border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View Details</button>
-                            </div>
-                        </div>
-                        {/* <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">View Details</button> */}
-                    </div>
-
+                    ))}
                 </div>
             </div>
 
+            <Modal
+                visible={isModalVisible}
+                onOk={handleOk}
+                onCancel={handleCancel}
+                footer={null}
+                width={700}
+                closable={false}
+            >
+                <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
+                    <div>
+                        <div className='grid grid-cols-2 gap-5'>
+                            <img src="/influencer/Home/Rectangle-2.png" alt="" />
+                            <div>
+                                <h2 className='text-xl font-semibold'>Campaign Name</h2>
+                                <h2 className='text-3xl my-3 font-semibold'>{currentCampaign}</h2>
+                                <p className='my-3 block text-gray-500 font-semibold '>TikTok Sound Link</p>
+                                <button className='border border-black px-5 py-3 rounded-xl'>Go to Media</button>
+                            </div>
+                        </div>
+                        <hr className='bg-secondary my-5 h-[2px] border-none' />
+                        <div>
+                            <h3>Campaign Details</h3>
+                            <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                        </div>
+
+                        <div className='my-5 grid grid-cols-2 gap-x-5 gap-y-8'>
+                            <div>
+                                <h3 className=' font-semibold'>Client</h3>
+                                <h2 className='text-3xl font-semibold'>TrendyX</h2>
+                            </div>
+                            <div>
+                                <h3 className=' font-semibold'>Target Starting Date</h3>
+                                <h2 className='text-3xl font-semibold'>01/01/2025</h2>
+                            </div>
+                            <div>
+                                <h3 className=' font-semibold'>Budget</h3>
+                                <h2 className='text-3xl font-semibold'>$1,200</h2>
+                            </div>
+                            <div>
+                                <h3 className=' font-semibold'>Target Ending Date</h3>
+                                <h2 className='text-3xl font-semibold'>01/01/2025</h2>
+                            </div>
+                        </div>
+
+                        <div className='mt-5'>
+                            <span className='font-semibold mb-2'>Uploaded Media</span>
+                            <audio controls className='w-full ' src="/influencer/Home/campaignIcons/campainAudio.mp3" />
+                        </div>
+                    </div>
+                </div>
+            </Modal>
         </div>
     );
 };

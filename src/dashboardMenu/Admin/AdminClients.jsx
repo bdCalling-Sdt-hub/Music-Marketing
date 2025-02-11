@@ -9,19 +9,11 @@ import { EyeOutlined, DownloadOutlined } from '@ant-design/icons';
 const AdminClients = () => {
     const [filter, setFilter] = useState('This Week');
     const [searchQuery, setSearchQuery] = useState('');
-    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
         setIsModalVisible(true);
     };
 
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalVisible(false);
-    };
 
     // Sample Data for the Table
     const clientsData = [
@@ -94,9 +86,9 @@ const AdminClients = () => {
             title: 'Actions',
             key: 'actions',
             render: () => (
-                <div onClick={showModal} className="flex gap-2 justify-center">
+                <Link to={`/admin/clients/profile/:id`} className="flex gap-2 justify-center">
                     <Button icon={<EyeOutlined />} shape="circle" />
-                </div>
+                </Link>
             ),
             width: '10%',
             onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
@@ -141,7 +133,7 @@ const AdminClients = () => {
                     <h1 className="text-2xl font-semibold">Admin Clients</h1>
                 </Link>
                 <button>
-                    <Link to={'/admin/clients/remove'} className="py-3 px-10 rounded-xl bg-[#344331] text-white">
+                    <Link to={'/admin/clients/remove'} className="py-3 px-10 rounded-xl bg-[#2e0000] text-white">
                         Remove Client
                     </Link>
                 </button>
@@ -159,57 +151,6 @@ const AdminClients = () => {
                 />
             </div>
 
-            {/* Modal for Client Details */}
-            <Modal
-                visible={isModalVisible}
-                onCancel={handleCancel}
-                footer={null}>
-                <div>
-                    <h2 className='text-2xl font-semibold text-center'>Transaction Details</h2>
-
-                    {/* Transaction ID */}
-                    <div className='flex justify-between py-5 border-b border-gray-500'>
-                        <span>Transaction ID :</span>
-                        <span>#12345678</span>
-                    </div>
-
-                    {/* Client Name */}
-                    <div className='flex justify-between py-5 border-b border-gray-500'>
-                        <span>Client name :</span>
-                        <span>Maria</span>
-                    </div>
-
-                    {/* Campaign Name */}
-                    <div className='flex justify-between py-5 border-b border-gray-500'>
-                        <span>Campaign name :</span>
-                        <span>Holiday Music Festival</span>
-                    </div>
-
-                    {/* Address */}
-                    <div className='flex justify-between py-5 border-b border-gray-500'>
-                        <span>Address :</span>
-                        <span>Dhaka, Bangladesh</span>
-                    </div>
-
-                    {/* Date */}
-                    <div className='flex justify-between py-5 border-b border-gray-500'>
-                        <span>Date :</span>
-                        <span>01-24-2024</span>
-                    </div>
-
-                    {/* A/C Number */}
-                    <div className='flex justify-between py-5 border-b border-gray-500'>
-                        <span>A/C number :</span>
-                        <span>****  ****  ****  *545</span>
-                    </div>
-
-                    {/* Payment Amount */}
-                    <div className='flex justify-between pt-5'>
-                        <span>Payment Amount :</span>
-                        <span>$2.99</span>
-                    </div>
-                </div>
-            </Modal>
         </div>
     );
 };

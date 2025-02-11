@@ -70,6 +70,7 @@ import AdminInfluencerPay from "../dashboardMenu/Admin/AdminInfluencerPay";
 import AdminInfluencerPaySuccess from "../dashboardMenu/Admin/AdminInfluencerPaySuccess";
 import AdminTransactions from "../dashboardMenu/Admin/AdminTransactions";
 import AdminProfile from "../dashboardMenu/Admin/AdminProfile";
+import AdminClientsProfileView from "../dashboardMenu/Admin/AdminClientsProfileView";
 
 export const router = createBrowserRouter([
   {
@@ -342,6 +343,10 @@ export const router = createBrowserRouter([
       {
         path: "clients",
         element: <AdminClients />,
+      },
+      {
+        path: "clients/profile/:id",
+        element: <AdminClientsProfileView />,
       },
       {
         path: "clients/remove",

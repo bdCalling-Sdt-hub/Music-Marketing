@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaCalendarAlt, FaMapMarkerAlt, FaLock } from 'react-icons/fa'; // Add icons for relevant fields
+import { Link } from 'react-router-dom';
 
 
 const SignUpInfluencer = () => {
@@ -101,7 +102,7 @@ const SignUpInfluencer = () => {
                 <button className='bg-black text-white p-5 w-full rounded-xl'>Sign Up</button>
 
                 {/* Login Link */}
-                <p className='text-center mt-5'>Already have an account? <a href="#" className='text-blue-500'>Login</a></p>
+                <p className='text-center mt-5'>Already have an account? <Link to="/" className='text-blue-500'> Login</Link></p>
             </div>
 
             {/* Image Section */}

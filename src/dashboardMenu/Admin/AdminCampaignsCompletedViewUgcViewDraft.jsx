@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { FaRegCirclePlay } from 'react-icons/fa6';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 
 // Slick Slider Settings
 const sliderSettings = {
@@ -75,9 +76,9 @@ const AdminCampaignsCompletedViewUgcViewDraft = () => {
                     </div>
                 </div>
                 <div className='space-y-3 my-5'>
-                    <button className='block py-3 w-full bg-[#344331] text-white rounded-lg' onClick={() => setIsFeedbackModalVisible(true)}>
-                        Send Feedback
-                    </button>
+                    <Link to={`/admin/campaigns/completed/view-feedback`} className='block text-center py-3 w-full bg-[#344331] text-white rounded-lg' >
+                        View Feedback
+                    </Link>
                     <button className='block py-3 w-full bg-[#2e0000] text-white rounded-lg'>Accept</button>
                 </div>
             </div>
@@ -109,22 +110,8 @@ const AdminCampaignsCompletedViewUgcViewDraft = () => {
 
             </Modal>
 
-            {/* Feedback Modal */}
-            <Modal visible={isFeedbackModalVisible} footer={null} onCancel={() => setIsFeedbackModalVisible(false)} width={500}>
-                <h2 className='text-xl font-semibold text-center mb-2'>Send Feedback</h2>
-                <p className='text-center text-gray-600 mb-4'>Got suggestions? Send feedbacks for review.</p>
-                <textarea
-                    className="w-full p-3 border rounded-md h-32"
-                    placeholder="Write your feedback here..."
-                    value={feedback}
-                    onChange={(e) => setFeedback(e.target.value)}
-                ></textarea>
-                <div className="flex justify-end mt-4">
-                    <button className='py-2 px-5 bg-[#344331] text-white rounded-lg' onClick={handleSendFeedback}>
-                        Send to Admin
-                    </button>
-                </div>
-            </Modal>
+
+            
         </div>
     );
 }

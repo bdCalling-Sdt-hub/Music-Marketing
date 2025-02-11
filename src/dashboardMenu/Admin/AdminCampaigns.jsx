@@ -192,9 +192,8 @@ const AdminCampaigns = () => {
                                                 <h3 className='font-semibold text-xl'>1500</h3>
                                             </div>
                                         </div>
-                                        <button className='bg-[#ff8225] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
-                                            Waiting for
-                                            Admin Approval
+                                        <button onClick={() => showModal(campaign)} className='bg-[#000] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
+                                            Approved
                                         </button>
                                     </div>
 

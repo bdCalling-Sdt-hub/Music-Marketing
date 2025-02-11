@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaLock, FaPhone, FaUser } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const SignUpManager = () => {
     return (
@@ -67,7 +68,9 @@ const SignUpManager = () => {
 
                     <button className='bg-black text-white p-5 w-full rounded-xl'>Sign Up</button>
 
-                    <p className='text-center mt-5'>Already have an account? <a href="#" className='text-blue-500'>Login</a></p>
+                    <p className='text-center mt-5'>Already have an account? 
+                        <Link to="/" className='text-blue-500'> Login</Link>
+                    </p>
                 </div>
                 <div className=''>
                     <img className='w-full max-h-[120vh]' src="/Auth/register.png" alt="" />
