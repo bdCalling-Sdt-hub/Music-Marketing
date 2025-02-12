@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import { Table, Button, Modal } from 'antd';
-import { FaFilter, FaSearch } from 'react-icons/fa';
-import { FaAngleLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
-import { EyeOutlined, DownloadOutlined } from '@ant-design/icons';
-
+import { EyeOutlined } from '@ant-design/icons';
+import { RiDeleteBin2Line } from 'react-icons/ri';
+import { FaAngleLeft, FaFilter, FaSearch } from 'react-icons/fa';
 
 const AdminClients = () => {
     const [filter, setFilter] = useState('This Week');
     const [searchQuery, setSearchQuery] = useState('');
-
-    const showModal = () => {
-        setIsModalVisible(true);
-    };
-
-
-    // Sample Data for the Table
-    const clientsData = [
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [selectedClient, setSelectedClient] = useState(null);
+    const [clientsData, setClientsData] = useState([
         {
             key: '1',
             clientName: 'TrendyX',
@@ -26,19 +20,37 @@ const AdminClients = () => {
         },
         {
             key: '2',
-            clientName: 'TrendyX',
-            totalCampaigns: 13,
-            activeCampaigns: 3,
-            totalExpenditure: '$1,10,000',
+            clientName: 'BrandZ',
+            totalCampaigns: 9,
+            activeCampaigns: 2,
+            totalExpenditure: '$85,000',
         },
         {
             key: '3',
-            clientName: 'TrendyX',
-            totalCampaigns: 13,
-            activeCampaigns: 3,
-            totalExpenditure: '$1,10,000',
+            clientName: 'AdGuru',
+            totalCampaigns: 20,
+            activeCampaigns: 5,
+            totalExpenditure: '$2,00,000',
         },
-    ];
+    ]);
+
+    // Open Delete Client Modal
+    const showDeleteModal = (client) => {
+        setSelectedClient(client);
+        setIsModalVisible(true);
+    };
+
+    // Close Modal
+    const handleCancel = () => {
+        setIsModalVisible(false);
+        setSelectedClient(null);
+    };
+
+    // Remove Client
+    const handleRemoveClient = () => {
+        setClientsData(clientsData.filter(client => client.key !== selectedClient.key));
+        handleCancel();
+    };
 
     // Table Columns
     const columns = [
@@ -75,7 +87,7 @@ const AdminClients = () => {
             render: (text) => <div style={{ textAlign: 'center' }}>{text}</div>,
         },
         {
-            title: 'Clients Total Expenditure',
+            title: 'Total Expenditure',
             dataIndex: 'totalExpenditure',
             key: 'totalExpenditure',
             width: '20%',
@@ -85,16 +97,24 @@ const AdminClients = () => {
         {
             title: 'Actions',
             key: 'actions',
-            render: () => (
-                <Link to={`/admin/clients/profile/:id`} className="flex gap-2 justify-center">
-                    <Button icon={<EyeOutlined />} shape="circle" />
-                </Link>
+            render: (_, record) => (
+                <div className="flex gap-2 justify-center">
+                    <Link to={`/admin/clients/profile/${record.key}`}>
+                        <Button icon={<EyeOutlined className='text-2xl' />} shape="circle" />
+                    </Link>
+                    <button
+                        // shape="circle"
+                        className='border rounded-full w-8 h-8 flex items-center justify-center'
+                        onClick={() => showDeleteModal(record)}
+                    >
+                        <RiDeleteBin2Line className='text-xl text-red-600' />
+                    </button>
+                </div>
             ),
             width: '10%',
             onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
         },
     ];
-
 
     return (
         <div>
@@ -117,12 +137,10 @@ const AdminClients = () => {
                         type="text"
                         placeholder="Search Client"
                         className="pl-10 pr-4 py-2 border rounded focus:outline-none"
-                        value={searchQuery} // Controlled input
+                        value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <button>
-                        <FaSearch className="absolute left-2 top-3 text-gray-400" />
-                    </button>
+                    <FaSearch className="absolute left-2 top-3 text-gray-400" />
                 </div>
             </div>
 
@@ -132,11 +150,6 @@ const AdminClients = () => {
                     <FaAngleLeft className="text-2xl" />
                     <h1 className="text-2xl font-semibold">Admin Clients</h1>
                 </Link>
-                <button>
-                    <Link to={'/admin/clients/remove'} className="py-3 px-10 rounded-xl bg-[#2e0000] text-white">
-                        Remove Client
-                    </Link>
-                </button>
             </div>
 
             {/* Clients Table */}
@@ -147,10 +160,35 @@ const AdminClients = () => {
                     pagination={false}
                     bordered
                     className="text-center"
-                    style={{ textAlign: 'center' }} // Ensure the table content is centered
                 />
             </div>
 
+            {/* Delete Client Modal */}
+            <Modal
+                // title="Confirm Client Removal"
+                open={isModalVisible} // Changed from "visible" to "open" for AntD v5
+                onCancel={handleCancel}
+                width={400}
+                footer={[
+                    <div className='w-full flex items-center gap-3'>
+                        <Button className='w-1/2 h-12' key="cancel" onClick={handleCancel}>
+                            Cancel
+                        </Button>
+                        <Button className='w-1/2 h-12 bg-red-600 !text-white hover:!text-red-500' key="remove" type="" danger onClick={handleRemoveClient}>
+                            Remove Client
+                        </Button>
+                    </div>
+                ]}
+            >
+                <div>
+                    <img src="/influencer/Home/Rectangle-2.png" alt="" />
+                    <div className='my-5'>
+                        <h2 className='font-semibold text-xl my-2 text-center'>Are You Sure?</h2>
+                        <p className='text-center my-2 text-gray-400'>Influencer Name: TrendyX</p>
+                        <p className='text-center my-2 text-gray-400'>Email: abc@gmail.com</p>
+                    </div>
+                </div>
+            </Modal>
         </div>
     );
 };
