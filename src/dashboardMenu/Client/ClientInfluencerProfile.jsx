@@ -3,6 +3,8 @@ import { FaAngleLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { FaDownload } from 'react-icons/fa';
+import { CiUser } from 'react-icons/ci';
+import { HiOutlineUserGroup } from 'react-icons/hi';
 
 // Chart Data
 const chartData = [
@@ -14,9 +16,17 @@ const chartData = [
     { month: "June", engagement: 40, followers: 42 },
 ];
 
+const campaignData = [
+    { id: 1, name: "Holiday Music Campaign", img: "/influencer/Home/Rectangle-2.png" },
+    { id: 2, name: "Holiday Music Campaign", img: "/influencer/Home/Rectangle-2.png" },
+    { id: 3, name: "Holiday Music Campaign", img: "/influencer/Home/Rectangle-2.png" },
+    { id: 4, name: "Holiday Music Campaign", img: "/influencer/Home/Rectangle-2.png" },
+    { id: 5, name: "Holiday Music Campaign", img: "/influencer/Home/Rectangle-2.png" },
+];
+
 const ClientInfluencerProfile = () => {
     return (
-        <div className="p-5">
+        <div className="">
             {/* Back Button */}
             <Link to={'/client/influencers'} className='flex items-center gap-2 text-2xl font-semibold mb-5'>
                 <FaAngleLeft />
@@ -24,12 +34,12 @@ const ClientInfluencerProfile = () => {
             </Link>
 
             {/* Influencer Details */}
-            <div className='flex items-center justify-between'>
-                <div className='flex gap-5 items-center my-10'>
-                    <img className='w-32 h-32 rounded-full' src="/influencer/Home/Rectangle-2.png" alt="Profile" />
+            <div className='flex justify-between flex-wrap md:flex-nowrap mb-10'>
+                <div className='flex gap-5 items-center'>
+                    <img className='w-32 h-32 rounded-full object-cover' src="/influencer/Home/Rectangle-2.png" alt="Profile" />
                     <div>
-                        <h2 className='text-2xl font-semibold'>Maria Rodrigez</h2>
-                        <h2>Influencer</h2>
+                        <h2 className='text-3xl font-semibold'>Maria Rodriguez</h2>
+                        <h3 className="text-lg text-gray-500">Influencer</h3>
                         <div className='flex gap-3 mt-2'>
                             <img className='w-6' src="/influencer/Home/campaignIcons/socialMedia/Instagram.png" alt="Instagram" />
                             <img className='w-6' src="/influencer/Home/campaignIcons/socialMedia/TikTok.png" alt="TikTok" />
@@ -38,101 +48,72 @@ const ClientInfluencerProfile = () => {
                         </div>
                     </div>
                 </div>
-                <div className='space-y-4'>
-                    <span className='block'>Email: maria123@gmail.com </span>
-                    <span className='block'>Phone: 012344556567889 </span>
-                    <span className='block'>Joined: December 1, 2025 </span>
+                <div className='text-right'>
+                    <p className='my-2'>Email: <span className="font-semibold ">maria123@gmail.com</span></p>
+                    <p className='my-2'>Phone: <span className="font-semibold ">012344556567889</span></p>
+                    <p className='my-2'>Joined: <span className="font-semibold ">December 1, 2025</span></p>
                 </div>
             </div>
 
-            {/* Charts Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {/* Total Engagement Chart */}
-                <div className="bg-white p-5 rounded-lg shadow-md">
-                    <div className="flex justify-between items-center mb-8">
-                        <h3 className="text-lg font-semibold text-gray-700">Total Engagement</h3>
-                        <FaDownload className="text-gray-600 cursor-pointer" />
+            {/* Platform Stats */}
+            <div className="grid md:grid-cols-3 gap-5 border p-5 rounded-lg">
+                {[
+                    { platform: "TikTok", username: "Maria Rodriguez", followers: "1,200" },
+                    { platform: "YouTube", username: "Maria Rodriguez", followers: "1,200" },
+                    { platform: "Instagram", username: "Maria Rodriguez", followers: "1,200" },
+                ].map((item, index) => (
+                    <div key={index} className="border-r last:border-none pr-5">
+                        <h3 className="text-lg font-semibold flex items-center gap-2">
+                            <img className="w-5" src={`/influencer/Home/campaignIcons/socialMedia/${item.platform}.png`} alt={item.platform} />
+                            {item.platform} Information:
+                        </h3>
+                        <p className="mt-5 text-[#ff9b51]">
+                            <span className="font-semibold">
+                                <span className='flex items-center gap-2'>
+                                    <CiUser className='text-xl' />
+                                    User Name
+                                </span>
+                            </span>
+                            <span className='font-semibold text-xl text-black mt-1 block'>{item.username}</span>
+                        </p>
+
+                        <p className="mt-5 text-[#ff9b51]">
+                            <span className="font-semibold">
+                                <span className='flex items-center gap-2'>
+                                    <HiOutlineUserGroup className='text-xl' />
+                                    Total Followers
+                                </span>
+                            </span>
+                            <span className='font-semibold text-xl text-black mt-1 block'>{item.followers}</span>
+                        </p>
+
                     </div>
-                    <ResponsiveContainer width="100%" height={350}>
-                        <BarChart data={chartData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="month" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Bar dataKey="engagement" fill="#5D2C2C" radius={[5, 5, 0, 0]} name="2025" />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </div>
-
-                {/* Total Followers Chart */}
-                <div className="bg-white p-5 rounded-lg shadow-md">
-                    <div className="flex justify-between items-center mb-8">
-                        <h3 className="text-lg font-semibold text-gray-700">Total Follower</h3>
-                        <FaDownload className="text-gray-600 cursor-pointer" />
-                    </div>
-                    <ResponsiveContainer width="100%" height={350}>
-                        <BarChart data={chartData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="month" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Bar dataKey="followers" fill="#F39C12" radius={[5, 5, 0, 0]} name="2025" />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </div>
-
-
-
+                ))}
             </div>
-            <div>
-                <div className="flex justify-between my-8">
-                    <h2 className="text-3xl font-semibold">Active Campaigns</h2>
-                    <button className="border border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View Activity</button>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
-                        <div className='grid grid-cols-2 gap-3'>
-                            <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
-                            <div>
-                                <h4 className="font-semibold text-lg mb-2">HOLIDAY MUSIC CAMPAIGN</h4>
-                                <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
-                                <h2 className='text-3xl font-semibold'>$1520</h2>
-                                <Link to={`/client/influencers/influencer-activity/${1}`} className="border mt-3 w-full border-gray-600 block text-center text-gray-600 py-2 px-5 rounded-lg">View Details</Link>
-                            </div>
-                        </div>
-                        {/* <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">View Details</button> */}
-                    </div>
-                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
-                        <div className='grid grid-cols-2 gap-3'>
-                            <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
-                            <div>
-                                <h4 className="font-semibold text-lg mb-2">HOLIDAY MUSIC CAMPAIGN</h4>
-                                <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
-                                <h2 className='text-3xl font-semibold'>$1520</h2>
-                                <Link to={`/client/influencers/influencer-activity/${2}`} className="border mt-3 w-full border-gray-600 block text-center text-gray-600 py-2 px-5 rounded-lg">View Details</Link>
-                            </div>
-                        </div>
-                        {/* <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">View Details</button> */}
-                    </div>
-                    <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
-                        <div className='grid grid-cols-2 gap-3'>
-                            <img className='h-full' src="/influencer/Home/Rectangle-2.png" alt="" />
-                            <div>
-                                <h4 className="font-semibold text-lg mb-2">HOLIDAY MUSIC CAMPAIGN</h4>
-                                <p className="text-sm text-gray-600 mb-2">Happening in 2 days</p>
-                                <h2 className='text-3xl font-semibold'>$1520</h2>
-                                <Link to={`/client/influencers/influencer-activity/${3}`} className="border mt-3 w-full border-gray-600 block text-center text-gray-600 py-2 px-5 rounded-lg">View Details</Link>
-                            </div>
-                        </div>
-                        {/* <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">View Details</button> */}
-                    </div>
 
+
+            {/* Recently Participated Campaigns */}
+            <div className="mt-10">
+                <div className="flex justify-between items-center mb-5">
+                    <h2 className="text-3xl font-semibold">Recently Participated Campaigns</h2>
+                    <Link to={`/client/influencers/all/influencers`} className="border border-gray-600 text-gray-600 py-2 px-5 rounded-lg">View All</Link>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
+                    {campaignData.map((campaign) => (
+                        <div key={campaign.id} className="p-4 border rounded-lg shadow-md">
+                            <img className="w-full h-40 object-cover rounded-lg" src={campaign.img} alt={campaign.name} />
+                            <h3 className="text-center mt-3 font-semibold">{campaign.name}</h3>
+                            <div className='mt-5 '>
+                                <Link to={`/client/influencers/influencer-activity/${campaign.id}`} className="border border-gray-600 text-gray-600 py-2 px-4 rounded-lg w-full block text-center mt-2">
+                                    View Activity
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default ClientInfluencerProfile;

@@ -41,7 +41,7 @@ const campaignsData = [
 ];
 
 const Campaigns = () => {
-    const [selectedTab, setSelectedTab] = useState('active');
+    const [selectedTab, setSelectedTab] = useState('upcoming');
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [modalContent, setModalContent] = useState({});
     const [filter, setFilter] = useState('This Week');
@@ -66,14 +66,14 @@ const Campaigns = () => {
 
     return (
         <div className="p-5">
-            <Link to={'/influencer/campaigns/uploadcampaign'} className='mb-10 flex items-center justify-end'>
+            {/* <Link to={'/influencer/campaigns/uploadcampaign'} className='mb-10 flex items-center justify-end'>
                 <button className='py-3 px-10 rounded-xl bg-[#344331] text-white'>View Drafts</button>
-            </Link>
+            </Link> */}
             {/* Tabs Section */}
             <div className="flex justify-between mb-5 border-b-2 border-black">
                 <div className="flex space-x-5 font-semibold">
-                    <button onClick={() => setSelectedTab('active')} className={`py-2 px-4  ${selectedTab === 'active' ? 'border-b-4 border-black text-black' : ''}`}>Active Campaigns</button>
                     <button onClick={() => setSelectedTab('upcoming')} className={`py-2 px-4  ${selectedTab === 'upcoming' ? 'border-b-4 border-black text-black' : ''}`}>Upcoming Campaigns</button>
+                    <button onClick={() => setSelectedTab('active')} className={`py-2 px-4  ${selectedTab === 'active' ? 'border-b-4 border-black text-black' : ''}`}>Active Campaigns</button>
                     <button onClick={() => setSelectedTab('completed')} className={`py-2 px-4 ${selectedTab === 'completed' ? 'border-b-4 border-black text-black' : ''}`}>Completed Campaigns</button>
                 </div>
 
@@ -127,6 +127,16 @@ const Campaigns = () => {
                                 >
                                     Go to Campaign
                                 </button>
+                                {
+                                    campaign.status === 'active' && (
+                                        <Link className='mt-5 md:ml-2 w-auto border border-black text-black px-20 py-3 rounded-lg' to={`/influencer/campaigns/uploadcampaign`}>Show Draft </Link>
+                                    )
+                                }
+                                {
+                                    campaign.status === 'completed' && (
+                                        <Link className='mt-5 md:ml-2 w-auto border border-black text-black px-20 py-3 rounded-lg' to={`/influencer/campaigns/uploadcampaign`}>Show Draft </Link>
+                                    )
+                                }
                             </div>
                         </div>
                     </div>
@@ -197,7 +207,7 @@ const Campaigns = () => {
                                 </div>
                             </div>
                             {
-                                modalContent.status === 'active' &&
+                                modalContent.status === 'upcoming' &&
                                 <button button className='mt-5 w-full bg-[#583333] text-white font-semibold px-10 py-3 rounded-lg'>
                                     Accept
                                 </button>

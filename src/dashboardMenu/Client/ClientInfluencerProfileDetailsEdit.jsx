@@ -109,7 +109,7 @@ const ClientInfluencerProfileDetailsEdit = () => {
                     </div>
                     <Button
                         htmlType="submit"
-                        className="mt-12 h-14 px-10 !bg-[#193664] text-[#fff] rounded-lg text-lg font-medium"
+                        className="mt-12 h-14 px-10 !bg-[#0f0f0f] hover:!text-white text-[#fff] rounded-lg text-lg font-medium"
                     >
                         Update Profile
                     </Button>

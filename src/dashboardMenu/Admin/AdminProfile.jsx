@@ -184,7 +184,7 @@ const AdminProfile = () => {
                                     </div>
 
                                     {/* Social Links Section */}
-                                    <div className="">
+                                    {/* <div className="">
                                         <h2 className="text-lg font-medium mb-2">Add Social Links</h2>
                                         <select
                                             value={selectedPlatform}
@@ -215,7 +215,7 @@ const AdminProfile = () => {
                                                 className="w-full p-2 outline-none" placeholder="Enter URL" />
                                             <button onClick={addLink} className="p-1 bg-blue-500 text-2xl text-white">+</button>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

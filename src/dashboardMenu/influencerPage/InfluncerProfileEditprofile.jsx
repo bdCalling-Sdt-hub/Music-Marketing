@@ -108,7 +108,7 @@ const InfluncerProfileEditprofile = () => {
                     </div>
                     <Button
                         htmlType="submit"
-                        className="mt-12 h-14 px-10 !bg-[#193664] text-[#fff] rounded-lg text-lg font-medium"
+                        className="mt-12 h-14 px-10 !bg-[#0f0f0f] hover:!text-white text-[#fff] rounded-lg text-lg font-medium"
                     >
                         Update Profile
                     </Button>
@@ -142,7 +142,7 @@ const InfluncerProfileEditprofile = () => {
                         </div>
 
                         <div className="flex-1 w-full lg:w-2/3">
-                            <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-3">
                                 <Form.Item
                                     label={<span className="text-lg font-medium">Name</span>}
                                     name="fullName"
@@ -152,13 +152,28 @@ const InfluncerProfileEditprofile = () => {
                                     <Input placeholder="Full Name" className="p-4 rounded-lg border-gray-300" />
                                 </Form.Item>
 
-                                <Form.Item label={<span className="text-lg font-medium">Email</span>} name="email">
+
+                                <Form.Item
+                                    label={<span className="text-lg font-medium">Email</span>}
+                                    name="email"
+                                    initialValue={data?.data?.attributes?.email}
+                                    rules={[{ required: true, message: "Email!" }]}
+                                >
                                     <Input
                                         placeholder="Email"
                                         value={data?.data?.attributes?.email}
                                         readOnly
                                         className="p-4 rounded-lg border-gray-300 bg-gray-100"
                                     />
+                                </Form.Item>
+
+                                <Form.Item
+                                    label={<span className="text-lg font-medium">Bank Account Number</span>}
+                                    name="bankAccount"
+                                    initialValue={data?.data?.attributes?.bankAccount}
+                                    rules={[{ required: true, message: "Bank Account Number!" }]}
+                                >
+                                    <Input placeholder="Bank Account Number" className="p-4 rounded-lg border-gray-300" />
                                 </Form.Item>
 
                                 <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">

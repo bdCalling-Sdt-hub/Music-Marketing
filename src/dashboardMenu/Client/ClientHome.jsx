@@ -1,6 +1,7 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+import { Link } from "react-router-dom";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend, BarChart, Bar } from "recharts";
 
 const engagementData = [
     { day: "MON", engagement: 500000 },
@@ -37,11 +38,29 @@ const ClientHome = () => {
         setIsModalVisible(false);
     };
 
+    const paymentData = [
+        { month: "Jan", revenue: 10000 },
+        { month: "Feb", revenue: 25000 },
+        { month: "Mar", revenue: 45000 },
+        { month: "Apr", revenue: 38000 },
+        { month: "May", revenue: 20000 },
+        { month: "Jun", revenue: 15000 },
+        { month: "Jul", revenue: 22000 },
+        { month: "Aug", revenue: 36000 },
+        { month: "Sep", revenue: 40000 },
+        { month: "Oct", revenue: 45000 },
+        { month: "Nov", revenue: 43000 },
+        { month: "Dec", revenue: 60000 },
+    ];
+
+
+
     return (
         <div className="p-5">
             {/* Stats Section */}
             <div className="flex items-center gap-5 flex-wrap">
                 {[{ title: "Total Influencers", value: "40,689", icon: "/influencer/Home/Icon.png" },
+                { title: "Total Payment", value: "1,20,000", icon: "/influencer/Home/bank-icon.png" },
                 { title: "Active Campaigns", value: "10,293", icon: "/influencer/Home/Icon1.png" },
                 { title: "Total Campaigns", value: "$89,000", icon: "/influencer/Home/Icon1.png" }].map((stat, index) => (
                     <div key={index} className="flex w-80 items-center gap-5 justify-between bg-primary text-white p-5 rounded-lg">
@@ -77,21 +96,19 @@ const ClientHome = () => {
                             <option>November</option>
                         </select>
                     </div>
-                    <ResponsiveContainer width="100%" height={250}>
-                        <AreaChart data={engagementData}>
-                            <defs>
-                                <linearGradient id="colorEngagement" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="100%" stopColor="#f39c12" stopOpacity={0.8} />
-                                    <stop offset="100%" stopColor="#f39c12" stopOpacity={0} />
-                                </linearGradient>
-                            </defs>
-                            <XAxis dataKey="day" />
-                            <YAxis />
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <Tooltip />
-                            <Area type="monotone" dataKey="engagement" stroke="#f39c12" fill="url(#colorEngagement)" />
-                        </AreaChart>
-                    </ResponsiveContainer>
+                    <div className="flex-1"> {/* Ensures full height usage */}
+                        <ResponsiveContainer width="100%" height={300}>  {/* Ensure height is set */}
+                            <BarChart data={paymentData}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="month" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="revenue" fill="#2e0000" />
+                            </BarChart>
+                        </ResponsiveContainer>
+
+                    </div>
                 </div>
 
                 {/* Campaign Pie Chart */}
@@ -124,6 +141,7 @@ const ClientHome = () => {
             <div>
                 <div className="flex justify-between my-8">
                     <h2 className="text-3xl font-semibold">Active Campaigns</h2>
+                    <Link to={'/client/campaigns'} className="border text-primary border-primary  py-2 px-5 rounded-lg">Show All</Link>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {["Campaign 1", "Campaign 2", "Campaign 3"].map((campaign, index) => (

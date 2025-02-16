@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaEye, FaSearch } from 'react-icons/fa'; // Import eye icon for actions
 import { Modal } from 'antd'; // Import Modal from Ant Design
 
-const Earnings = () => {
+const ClientTransactions = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalVisible, setIsModalVisible] = useState(false); // Modal visibility
@@ -153,4 +153,4 @@ const Earnings = () => {
     );
 };
 
-export default Earnings;
+export default ClientTransactions;

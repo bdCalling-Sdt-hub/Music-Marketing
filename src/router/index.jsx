@@ -71,6 +71,10 @@ import AdminInfluencerPaySuccess from "../dashboardMenu/Admin/AdminInfluencerPay
 import AdminTransactions from "../dashboardMenu/Admin/AdminTransactions";
 import AdminProfile from "../dashboardMenu/Admin/AdminProfile";
 import AdminClientsProfileView from "../dashboardMenu/Admin/AdminClientsProfileView";
+import InfluncerRecentlyParticipated from "../dashboardMenu/Client/InfluncerRecentlyParticipated";
+import ClientTransactions from "../dashboardMenu/Client/ClientTransactions";
+import AdminInfluencerRecentlyParticipated from "../dashboardMenu/Admin/AdminInfluencerRecentlyParticipated";
+import Notification from "../layout/Notification";
 
 export const router = createBrowserRouter([
   {
@@ -102,6 +106,7 @@ export const router = createBrowserRouter([
     path: "updatepassword",
     element: <UpdatePassword />,
   },
+
   {
     path: "/influencer",
     element: <Main />,
@@ -115,25 +120,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "campaignsdetails/:id",
-        element: <CampaignDetails />,
+        path: "notification",
+        element: <Notification />,
       },
-      {
-        path: "campaignsupload/:id",
-        element: <Campaignsupload />,
-      },
-      {
-        path: "campaignsuploadedfiels/:id",
-        element: <CampaignsuploadedFiles />,
-      },
-      {
-        path: "feedbacks/:id",
-        element: <Feedbacks />,
-      },
-      {
-        path: "feedbacks/upload/:id",
-        element: <FeedbacksUpload />,
-      },
+
       {
         path: "campaigns",
         element: <Campaigns />,
@@ -142,6 +132,29 @@ export const router = createBrowserRouter([
         path: 'campaigns/uploadcampaign',
         element: <Campaignsupload />
       },
+
+      // {
+      //   path: "campaignsdetails/:id",
+      //   element: <CampaignDetails />,
+      // },
+      // {
+      //   path: "campaignsupload/:id",
+      //   element: <Campaignsupload />,
+      // },
+      // {
+      //   path: "campaignsuploadedfiels/:id",
+      //   element: <CampaignsuploadedFiles />,
+      // },
+      {
+        path: "feedbacks/:id",
+        element: <Feedbacks />,
+      },
+      // {
+      //   path: "feedbacks/upload/:id",
+      //   element: <FeedbacksUpload />,
+      // },
+
+
       {
         path: 'earnings',
         element: <Earnings />
@@ -208,6 +221,14 @@ export const router = createBrowserRouter([
         element: <ClientHome />,
       },
       {
+        path: "notification",
+        element: <Notification />,
+      },
+      {
+        path: "transactions",
+        element: <ClientTransactions />,
+      },
+      {
         path: "campaigns",
         element: <ClientCampaigns />,
       },
@@ -258,6 +279,10 @@ export const router = createBrowserRouter([
         element: <ClientInfluencerProfile />,
       },
       {
+        path: "influencers/all/influencers",
+        element: <InfluncerRecentlyParticipated />,
+      },
+      {
         path: "influencers/influencer-activity/:id",
         element: <ClientInfluencerInfluencerActivity />,
       },
@@ -289,6 +314,10 @@ export const router = createBrowserRouter([
         element: <AdminHome />,
       },
       {
+        path: "notification",
+        element: <Notification />,
+      },
+      {
         path: "campaigns",
         element: <AdminCampaigns />,
       },
@@ -300,8 +329,6 @@ export const router = createBrowserRouter([
         path: "campaigns/edit",
         element: <AdminCampaignsEdit />,
       },
-
-
 
       {
         path: "campaigns/completed/:id",
@@ -319,8 +346,10 @@ export const router = createBrowserRouter([
         path: "campaigns/completed/view-feedback",
         element: <AdminCampaignsCompletedViewUgcViewDraftViewFeedback />,
       },
-
-
+      {
+        path: "influencers/all/influencers",
+        element: <AdminInfluencerRecentlyParticipated />,
+      },
 
       {
         path: "campaigns/active/:id",
@@ -352,7 +381,6 @@ export const router = createBrowserRouter([
         path: "clients/remove",
         element: <AdminClientsRemove />,
       },
-
 
 
       {
@@ -394,11 +422,6 @@ export const router = createBrowserRouter([
         path: "profile",
         element: <AdminProfile />
       }
-
-
-
-
-
 
     ]
   }

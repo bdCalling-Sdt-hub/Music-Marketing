@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { FaAngleLeft, FaFilter, FaSearch } from 'react-icons/fa';
+import { MdBlock } from 'react-icons/md';
 
 const AdminClients = () => {
     const [filter, setFilter] = useState('This Week');
@@ -86,14 +87,14 @@ const AdminClients = () => {
             onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
             render: (text) => <div style={{ textAlign: 'center' }}>{text}</div>,
         },
-        {
-            title: 'Total Expenditure',
-            dataIndex: 'totalExpenditure',
-            key: 'totalExpenditure',
-            width: '20%',
-            onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
-            render: (text) => <div style={{ textAlign: 'center' }}>{text}</div>,
-        },
+        // {
+        //     title: 'Total Expenditure',
+        //     dataIndex: 'totalExpenditure',
+        //     key: 'totalExpenditure',
+        //     width: '20%',
+        //     onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
+        //     render: (text) => <div style={{ textAlign: 'center' }}>{text}</div>,
+        // },
         {
             title: 'Actions',
             key: 'actions',
@@ -107,7 +108,7 @@ const AdminClients = () => {
                         className='border rounded-full w-8 h-8 flex items-center justify-center'
                         onClick={() => showDeleteModal(record)}
                     >
-                        <RiDeleteBin2Line className='text-xl text-red-600' />
+                        <MdBlock className='text-xl text-red-600' />
                     </button>
                 </div>
             ),
@@ -169,19 +170,20 @@ const AdminClients = () => {
                 open={isModalVisible} // Changed from "visible" to "open" for AntD v5
                 onCancel={handleCancel}
                 width={400}
+                closable={false}
                 footer={[
-                    <div className='w-full flex items-center gap-3'>
-                        <Button className='w-1/2 h-12' key="cancel" onClick={handleCancel}>
+                    <div className='w-full flex justify-center items-center gap-3'>
+                        {/* <Button className='w-1/2 h-12' key="cancel" onClick={handleCancel}>
                             Cancel
-                        </Button>
+                        </Button> */}
                         <Button className='w-1/2 h-12 bg-red-600 !text-white hover:!text-red-500' key="remove" type="" danger onClick={handleRemoveClient}>
-                            Remove Client
+                            Block
                         </Button>
                     </div>
                 ]}
             >
                 <div>
-                    <img src="/influencer/Home/Rectangle-2.png" alt="" />
+                    <img className='w-full' src="/influencer/Home/Rectangle-2.png" alt="" />
                     <div className='my-5'>
                         <h2 className='font-semibold text-xl my-2 text-center'>Are You Sure?</h2>
                         <p className='text-center my-2 text-gray-400'>Influencer Name: TrendyX</p>

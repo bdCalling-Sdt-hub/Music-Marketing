@@ -68,16 +68,16 @@ const InfluncerHome = () => {
             {/* Stats Section */}
             <div className="flex items-center gap-5 flex-wrap">
                 {[
-                    { title: 'Total Engagement', value: '40,689', icon: '/influencer/Home/Icon.png' },
                     { title: 'Total Campaign', value: '10,293', icon: '/influencer/Home/Icon1.png' },
                     { title: 'Total Income', value: '$89,000', icon: '/influencer/Home/Icon2.png' },
+                    { title: 'Total Submitted Draft', value: '50', icon: '/influencer/Home/total-submit-draft.png' },
                 ].map((stat, index) => (
                     <div
                         key={index}
                         className="flex w-80 items-center gap-5 justify-between bg-primary text-white p-5 rounded-lg"
                     >
                         <div>
-                            <h4 className="text-xl font-semibold text-gray-200 mb-3">{stat.title}</h4>
+                            <h4 className=" font-semibold text-gray-200 mb-3">{stat.title}</h4>
                             <h2 className="text-3xl font-semibold">{stat.value}</h2>
                         </div>
                         <div>
@@ -90,15 +90,24 @@ const InfluncerHome = () => {
             <div className="grid lg:grid-cols-2 items-stretch md:gap-6">
                 {/* Campaign Overview Chart */}
                 <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[50vh] flex flex-col">
-                    <h2 className="mb-10 font-semibold text-xl">Campaign Overview</h2>
+                    <h2 className="mb-10 font-semibold text-xl">Total Participated Events</h2>
                     <div className="flex-1"> {/* Ensures full height usage */}
-                        <Area className="w-full h-full" {...config} />
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={paymentData}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="month" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="revenue" fill="#ff9b51" />
+                            </BarChart>
+                        </ResponsiveContainer>
                     </div>
                 </div>
 
                 {/* Payment Chart */}
                 <div className="md:w-full w-auto bg-gray-100 md:p-10 p-5 pb-20 rounded-xl md:my-10 my-5 min-h-[50vh] flex flex-col">
-                    <h2 className="mb-10 font-semibold text-xl">Payment</h2>
+                    <h2 className="mb-10 font-semibold text-xl">Total Income</h2>
                     <div className="flex-1"> {/* Ensures full height usage */}
                         <ResponsiveContainer width="100%" height="100%">
                             <BarChart data={paymentData}>
@@ -210,9 +219,9 @@ const InfluncerHome = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <button className='mt-5 w-full bg-[#583333] text-white font-semibold px-10 py-3 rounded-lg'>
+                                    {/* <button className='mt-5 w-full bg-[#583333] text-white font-semibold px-10 py-3 rounded-lg'>
                                         Accept
-                                    </button>
+                                    </button> */}
                                 </div>
 
                             </div>
@@ -223,10 +232,10 @@ const InfluncerHome = () => {
                         <div className='bg-[#f3f4f6] rounded-lg p-10 grid grid-cols-2 gap-5 items-center'>
                             <img className='w-full' src="/influencer/Home/HomePageAnnouncement.png" alt="" />
                             <div>
-                                <h2 className='text-5xl font-semibold text-center'>Show All
+                                <h2 className='text-5xl font-semibold text-right'>Show All
                                     Campaigns</h2>
-                                <div className='flex justify-center'>
-                                    <button className='bg-secondary text-white px-10 py-3 rounded-lg mt-8'>Show All</button>
+                                <div className='flex justify-end'>
+                                    <Link to={`/influencer/campaigns`} className='bg-secondary text-white px-10 py-3 rounded-lg mt-8'>Go To Campaigns</Link>
                                 </div>
                             </div>
                         </div>

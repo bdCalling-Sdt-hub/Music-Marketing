@@ -61,12 +61,12 @@ const CampaignsUpload = () => {
                 >
                     Upload Drafts
                 </button>
-                <button
+                {/* <button
                     className={`py-2 px-4 font-semibold ${activeTab === 'uploaded' ? 'border-b-4 border-[#1b1b1b] text-[#1b1b1b]' : 'text-gray-500'}`}
                     onClick={() => handleTabChange('uploaded')}
                 >
                     Uploaded Drafts
-                </button>
+                </button> */}
                 <button
                     className={`py-2 px-4 font-semibold ${activeTab === 'approved' ? 'border-b-4 border-[#1b1b1b] text-[#1b1b1b]' : 'text-gray-500'}`}
                     onClick={() => handleTabChange('approved')}

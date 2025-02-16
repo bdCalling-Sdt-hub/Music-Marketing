@@ -41,7 +41,7 @@ const campaignsData = [
 ];
 
 const ClientCampaigns = () => {
-    const [selectedTab, setSelectedTab] = useState('active');
+    const [selectedTab, setSelectedTab] = useState('upcoming');
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [modalContent, setModalContent] = useState({});
     const [filter, setFilter] = useState('This Week');
@@ -72,8 +72,8 @@ const ClientCampaigns = () => {
             {/* Tabs Section */}
             <div className="flex justify-between mb-5 border-b-2 border-black">
                 <div className="flex space-x-5 font-semibold">
-                    <button onClick={() => setSelectedTab('active')} className={`py-2 px-4  ${selectedTab === 'active' ? 'border-b-4 border-black text-black' : ''}`}>Active Campaigns</button>
                     <button onClick={() => setSelectedTab('upcoming')} className={`py-2 px-4  ${selectedTab === 'upcoming' ? 'border-b-4 border-black text-black' : ''}`}>Upcoming Campaigns</button>
+                    <button onClick={() => setSelectedTab('active')} className={`py-2 px-4  ${selectedTab === 'active' ? 'border-b-4 border-black text-black' : ''}`}>Active Campaigns</button>
                     <button onClick={() => setSelectedTab('completed')} className={`py-2 px-4 ${selectedTab === 'completed' ? 'border-b-4 border-black text-black' : ''}`}>Completed Campaigns</button>
                 </div>
 
@@ -135,7 +135,7 @@ const ClientCampaigns = () => {
                                     campaign && campaign.status === 'completed' &&
                                     <div className='flex flex-col text-center' >
                                         <Link
-                                            to={`/client/campaigns/completed/${campaign.id}`} 
+                                            to={`/client/campaigns/completed/${campaign.id}`}
                                             className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
                                         >
                                             Go to Campaign
@@ -145,7 +145,14 @@ const ClientCampaigns = () => {
                                 }
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-4xl font-semibold">{campaign.name}</h3>
+                                <h3 className="text-4xl font-semibold flex items-center">
+                                    {campaign.name}
+                                    {
+                                        campaign.status === 'upcoming' &&
+                                        <span className='bg-blue-500 text-white px-1 text-sm font-medium ml-2'>New</span>
+                                    }
+
+                                </h3>
                                 <p className="text-sm my-5"><span className='font-semibold'>Details:</span> Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia </p>
                                 <p className="text-sm mt-2"><span className="font-semibold">Targeted Timeline:</span> {campaign.timeline}</p>
 

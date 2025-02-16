@@ -38,7 +38,7 @@ const AdminCampaignsCreate = () => {
 
     return (
         <div className="p-5 bg-white ">
-            <Link to={'/client/campaigns'} className="text-xl font-semibold mb-5 flex items-center gap-2"><FaAngleLeft /> Create New Campaign</Link>
+            <Link to={'/admin/campaigns'} className="text-xl font-semibold mb-5 flex items-center gap-2"><FaAngleLeft /> Create New Campaign</Link>
 
             <Form
                 form={form}

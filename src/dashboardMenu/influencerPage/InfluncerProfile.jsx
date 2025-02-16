@@ -50,11 +50,11 @@ const InfluencerProfile = () => {
                     <p className="text-xl font-semibold">40,689</p>
                     <p className="text-gray-500">Instagram Followers</p>
                 </div>
-                <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
+                {/* <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
                     <FaTwitter className="text-3xl text-blue-500" />
                     <p className="text-xl font-semibold">10,293</p>
                     <p className="text-gray-500">Twitter Followers</p>
-                </div>
+                </div> */}
                 <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
                     <FaYoutube className="text-3xl text-red-500" />
                     <p className="text-xl font-semibold">89,000</p>

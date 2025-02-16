@@ -5,6 +5,7 @@ import { FaAngleLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
 import { RiDeleteBin2Line } from 'react-icons/ri';
+import { MdBlock } from 'react-icons/md';
 
 const AdminInfluencer = () => {
     const [filter, setFilter] = useState('This Week');
@@ -110,7 +111,7 @@ const AdminInfluencer = () => {
                         <Button icon={<EyeOutlined />} shape="circle" />
                     </Link>
                     <Button
-                        icon={<RiDeleteBin2Line className='text-xl text-red-600' />}
+                        icon={<MdBlock className='text-xl text-red-600' />}
                         shape="circle"
                         onClick={() => showDeleteModal(record)}
                     />
@@ -174,22 +175,22 @@ const AdminInfluencer = () => {
                 open={isModalVisible}
                 onCancel={handleCancel}
                 width={400}
+                closable={false}
                 footer={[
-                    <div className='w-full flex items-center gap-3'>
-                        <Button className='w-1/2 h-12' key="cancel" onClick={handleCancel}>
-                            Cancel
-                        </Button>
+                    <div className='w-full flex justify-center items-center gap-3'>
                         <Button className='w-1/2 h-12 bg-red-600 !text-white hover:!text-red-500' key="remove" type="" danger onClick={handleRemoveInfluencer}>
-                            Remove Client
+                            Block
                         </Button>
                     </div>
                 ]}
             >
-                <div className="text-center">
-                    <img className="mx-auto w-20 h-20 rounded-full" src="/influencer/Home/Rectangle-2.png" alt="" />
-                    <h2 className="font-semibold text-xl my-3">Are You Sure?</h2>
-                    <p className="text-gray-400">Influencer Name: {selectedInfluencer?.clientName}</p>
-                    <p className="text-gray-400">Email: abc@gmail.com</p>
+                <div>
+                    <img className='w-full' src="/influencer/Home/Rectangle-2.png" alt="" />
+                    <div className='my-5'>
+                        <h2 className='font-semibold text-xl my-2 text-center'>Are You Sure?</h2>
+                        <p className='text-center my-2 text-gray-400'>Influencer Name: TrendyX</p>
+                        <p className='text-center my-2 text-gray-400'>Email: abc@gmail.com</p>
+                    </div>
                 </div>
             </Modal>
         </div>

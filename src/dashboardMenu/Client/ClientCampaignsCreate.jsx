@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { FiFolderPlus } from "react-icons/fi";
+import { BiSolidCloudUpload } from "react-icons/bi";
 
 const { TextArea } = Input;
 const { Option } = Select;
