@@ -6,6 +6,7 @@ const transactions = [
     {
         id: "#12345678",
         name: "Maria",
+        email: "abc@email.com",
         role: "Influencer",
         address: "Dhaka, Bangladesh",
         date: "01-24-2024",
@@ -19,6 +20,7 @@ const transactions = [
         id: "#12345679",
         name: "TrendyX",
         role: "Client",
+        email: "xyz@email.com",
         address: "New York, USA",
         date: "02-12-2024",
         accountNumber: "**** **** **** *123",
@@ -71,6 +73,7 @@ const AdminTransactions = () => {
                             <th className="py-3 px-4 text-left">#SL</th>
                             <th className="py-3 px-4 text-left">Name</th>
                             <th className="py-3 px-4 text-left">Role</th>
+                            <th className="py-3 px-4 text-left">Email</th>
                             <th className="py-3 px-4 text-left">Amount</th>
                             <th className="py-3 px-4 text-left">Time & Date</th>
                             <th className="py-3 px-4 text-left">Actions</th>
@@ -82,6 +85,7 @@ const AdminTransactions = () => {
                                 <td className="py-5 px-4">{index + 1}</td>
                                 <td className="py-5 px-4">{transaction.name}</td>
                                 <td className="py-5 px-4">{transaction.role}</td>
+                                <td className="py-5 px-4">{transaction.email}</td>
                                 <td className="py-5 px-4">{transaction.amount}</td>
                                 <td className="py-5 px-4">{transaction.date}</td>
                                 <td className="py-5 px-4">

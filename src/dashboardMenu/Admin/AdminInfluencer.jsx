@@ -18,6 +18,7 @@ const AdminInfluencer = () => {
         {
             key: '1',
             clientName: 'TrendyX',
+            email: 'abc@email.com',
             totalCampaigns: 13,
             activeCampaigns: 3,
             totalExpenditure: '$1,10,000',
@@ -25,6 +26,7 @@ const AdminInfluencer = () => {
         {
             key: '2',
             clientName: 'BrandZ',
+            email: 'xyz@email.com',
             totalCampaigns: 9,
             activeCampaigns: 2,
             totalExpenditure: '$85,000',
@@ -32,6 +34,7 @@ const AdminInfluencer = () => {
         {
             key: '3',
             clientName: 'AdGuru',
+            email: 'pqr@email.com',
             totalCampaigns: 20,
             activeCampaigns: 5,
             totalExpenditure: '$2,00,000',
@@ -70,7 +73,19 @@ const AdminInfluencer = () => {
             title: 'Influencer Name',
             dataIndex: 'clientName',
             key: 'clientName',
-            width: '25%',
+            width: '20%',
+            onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
+            render: (text) => (
+                <div className='flex items-center gap-2' style={{ textAlign: 'center' }}>
+                    <img className='w-5 rounded-full h-5' src="/influencer/Home/Rectangle-1.png" alt="" />{text}
+                </div>
+            ),
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            width: '20%',
             onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
             render: (text) => (
                 <div className='flex items-center gap-2' style={{ textAlign: 'center' }}>

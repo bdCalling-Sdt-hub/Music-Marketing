@@ -34,6 +34,7 @@ const ClientInfluencerProfileDetails = () => {
             attributes: {
                 fullName: "Enrique Smith",
                 email: "enrique.smith@example.com",
+                bankAccount: "1234567890",
             }
         }
     };
@@ -162,7 +163,16 @@ const ClientInfluencerProfileDetails = () => {
                                     />
                                 </Form.Item>
 
-                                <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <Form.Item label={<span className="text-lg font-medium">Bank Account Number</span>} name="bankAccount">
+                                    <Input
+                                        placeholder="Bank Account Number"
+                                        value={data?.data?.attributes?.bankAccount}
+                                        type='number'
+                                        className="p-4 rounded-lg border-gray-300 "
+                                    />
+                                </Form.Item>
+
+                                <div className="py-5 grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label className="text-lg font-medium mb-2 block">Phone Number</label>
                                         <div className='w-full'>

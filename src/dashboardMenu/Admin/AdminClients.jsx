@@ -16,6 +16,7 @@ const AdminClients = () => {
             key: '1',
             clientName: 'TrendyX',
             totalCampaigns: 13,
+            email: 'abc@email.com',
             activeCampaigns: 3,
             totalExpenditure: '$1,10,000',
         },
@@ -23,6 +24,7 @@ const AdminClients = () => {
             key: '2',
             clientName: 'BrandZ',
             totalCampaigns: 9,
+            email: 'xyz@email.com',
             activeCampaigns: 2,
             totalExpenditure: '$85,000',
         },
@@ -30,6 +32,7 @@ const AdminClients = () => {
             key: '3',
             clientName: 'AdGuru',
             totalCampaigns: 20,
+            email: 'adguru@email.com',
             activeCampaigns: 5,
             totalExpenditure: '$2,00,000',
         },
@@ -38,6 +41,7 @@ const AdminClients = () => {
     // Open Delete Client Modal
     const showDeleteModal = (client) => {
         setSelectedClient(client);
+        setIsModalVisible(true);
         setIsModalVisible(true);
     };
 
@@ -67,7 +71,15 @@ const AdminClients = () => {
             title: 'Client Name',
             dataIndex: 'clientName',
             key: 'clientName',
-            width: '25%',
+            width: '20%',
+            onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
+            render: (text) => <div style={{ textAlign: 'center' }}>{text}</div>,
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            width: '20%',
             onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
             render: (text) => <div style={{ textAlign: 'center' }}>{text}</div>,
         },
