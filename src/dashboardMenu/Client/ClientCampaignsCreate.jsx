@@ -182,9 +182,9 @@ const ClientCampaignsCreate = () => {
                     </Form>
 
                     {/* Send Email Notification Checkbox */}
-                    <Form.Item name="sendEmail" valuePropName="checked">
+                    {/* <Form.Item name="sendEmail" valuePropName="checked">
                         <Checkbox>Send Email Notification</Checkbox>
-                    </Form.Item>
+                    </Form.Item> */}
 
                     {/* Submit Button */}
                     <div className="flex justify-end">

@@ -128,6 +128,18 @@ const Sidebar = () => {
                             <span className="hidden ml-2 sm:block">Transactions</span>
                         </NavLink>
 
+                        <NavLink
+                            to="payments"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex cursor-pointer items-center text-[18px] font-medium p-[20px] bg-[#FFFFFF] text-[#193664]  "
+                                    : "flex text-[#ffffff] cursor-pointer items-center text-[18px] font-medium p-[20px] "
+                            }
+                        >
+                            <CiCreditCard2 className="text-3xl" />
+                            <span className="hidden ml-2 sm:block">Payment</span>
+                        </NavLink>
+
 
 
                         <NavLink

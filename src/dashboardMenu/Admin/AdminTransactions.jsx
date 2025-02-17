@@ -53,15 +53,31 @@ const AdminTransactions = () => {
                 <h2 className="text-2xl font-semibold">All Transaction List</h2>
 
                 {/* Search Input with Button */}
-                <div className="relative w-64">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10"
-                    />
-                    <button className="absolute right-3 top-3 text-gray-600 hover:text-black">
-                        <FaSearch />
-                    </button>
+                <div className="flex space-x-5">
+                    <div>
+                        <select name="" id="" className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10">
+                            <option value="">All</option>
+                            <option value="">Dabit</option>
+                            <option value="">Creadit</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="" id="" className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10">
+                            <option value="">All</option>
+                            <option value="">Client</option>
+                            <option value="">Influencer</option>
+                        </select>
+                    </div>
+                    <div className="relative w-64">
+                        <input
+                            type="text"
+                            placeholder="Search"
+                            className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10"
+                        />
+                        <button className="absolute right-3 top-3 text-gray-600 hover:text-black">
+                            <FaSearch />
+                        </button>
+                    </div>
                 </div>
             </div>
 

@@ -37,6 +37,15 @@ const campaignsData = [
         details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",
         timeline: "01 June, 2024 - 30 June, 2024",
         image: "/influencer/Home/Rectangle-2.png"
+    },
+    {
+        id: 5,
+        name: "Spring Fashion Campaign",
+        status: "upcoming",
+        isApprove: true,
+        details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",
+        timeline: "01 February, 2025 - 15 February, 2025",
+        image: "/influencer/Home/Rectangle-2.png"
     }
 ];
 
@@ -120,19 +129,7 @@ const ClientCampaigns = () => {
                             <div className='w-1/4'>
                                 <img src={campaign.image} alt={campaign.name} className=" rounded-lg" />
                                 {
-                                    campaign && campaign.status === 'active' &&
-                                    <div className='flex flex-col text-center'>
-                                        <button
-                                            onClick={() => showModal(campaign)}
-                                            className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
-                                        >
-                                            Go to Campaign
-                                        </button>
-                                        <Link to={'/client/campaigns/active/view-ugc'} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
-                                    </div>
-                                }
-                                {
-                                    campaign && campaign.status === 'completed' &&
+                                    campaign.status === 'completed' &&
                                     <div className='flex flex-col text-center' >
                                         <Link
                                             to={`/client/campaigns/completed/${campaign.id}`}
@@ -140,7 +137,19 @@ const ClientCampaigns = () => {
                                         >
                                             Go to Campaign
                                         </Link>
-                                        <Link to={`/client/campaigns/completed/view-ugc`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                        <Link to={`/admin/campaigns`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                    </div>
+                                }
+                                {
+                                    campaign.status === 'active' &&
+                                    <div className='flex flex-col text-center' >
+                                        <Link
+                                            to={`/client/campaigns/active/${campaign.id}`}
+                                            className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
+                                        >
+                                            Go to Campaign
+                                        </Link>
+                                        <Link to={`/client/campaigns`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
                                     </div>
                                 }
                             </div>
@@ -197,10 +206,16 @@ const ClientCampaigns = () => {
                                                 <h3 className='font-semibold text-xl'>1500</h3>
                                             </div>
                                         </div>
-                                        <button className='bg-[#ff8225] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
-                                            Waiting for
-                                            Admin Approval
-                                        </button>
+                                        {
+                                            campaign?.isApprove ?
+                                                <button className='bg-[#072704] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
+                                                    Pay Now
+                                                </button> :
+                                                <button className='bg-[#ff8225] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
+                                                    Waiting for
+                                                    Admin Approval
+                                                </button>
+                                        }
                                     </div>
 
                                 }

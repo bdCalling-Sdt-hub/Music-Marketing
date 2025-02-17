@@ -89,7 +89,7 @@ const AdminInfluencer = () => {
             onHeaderCell: () => ({ style: { backgroundColor: '#1e1e1e', color: '#fff', textAlign: 'center' } }),
             render: (text) => (
                 <div className='flex items-center gap-2' style={{ textAlign: 'center' }}>
-                    <img className='w-5 rounded-full h-5' src="/influencer/Home/Rectangle-1.png" alt="" />{text}
+                    {text}
                 </div>
             ),
         },

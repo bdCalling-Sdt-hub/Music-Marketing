@@ -59,6 +59,20 @@ const InfluncerHome = () => {
         { month: "Nov", revenue: 43000 },
         { month: "Dec", revenue: 60000 },
     ];
+    const participated = [
+        { month: "Jan", participated: 10000 },
+        { month: "Feb", participated: 25000 },
+        { month: "Mar", participated: 45000 },
+        { month: "Apr", participated: 38000 },
+        { month: "May", participated: 20000 },
+        { month: "Jun", participated: 15000 },
+        { month: "Jul", participated: 22000 },
+        { month: "Aug", participated: 36000 },
+        { month: "Sep", participated: 40000 },
+        { month: "Oct", participated: 45000 },
+        { month: "Nov", participated: 43000 },
+        { month: "Dec", participated: 60000 },
+    ];
 
 
 
@@ -93,13 +107,13 @@ const InfluncerHome = () => {
                     <h2 className="mb-10 font-semibold text-xl">Total Participated Events</h2>
                     <div className="flex-1"> {/* Ensures full height usage */}
                         <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={paymentData}>
+                            <BarChart data={participated}>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="month" />
                                 <YAxis />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey="revenue" fill="#ff9b51" />
+                                <Bar dataKey="participated" fill="#ff9b51" />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>

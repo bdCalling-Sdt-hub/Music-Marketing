@@ -9,10 +9,10 @@ const Earnings = () => {
     const [selectedTransaction, setSelectedTransaction] = useState(null); // Transaction details for modal
 
     const data = [
-        { id: 1, transactionNumber: '132342', email: 'maria@gmail.com', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
-        { id: 2, transactionNumber: '132343', email: 'maria@gmail.com', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
-        { id: 3, transactionNumber: '132344', email: 'maria@gmail.com', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
-        { id: 4, transactionNumber: '132345', email: 'maria@gmail.com', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
+        { id: 1, transactionNumber: '132342', campainsName: 'campainsName', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
+        { id: 2, transactionNumber: '132343', campainsName: 'campainsName', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
+        { id: 3, transactionNumber: '132344', campainsName: 'campainsName', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
+        { id: 4, transactionNumber: '132345', campainsName: 'campainsName', amount: '$1,200', time: '11 Oct 24, 11:10PM' },
         // Add more data here as needed
     ];
 
@@ -63,7 +63,7 @@ const Earnings = () => {
                         <tr>
                             <th className="px-4 py-3 text-left">#SL</th>
                             <th className="px-4 py-3 text-left">Transaction Number</th>
-                            <th className="px-4 py-3 text-left">Email</th>
+                            <th className="px-4 py-3 text-left">Campaigns Name</th>
                             <th className="px-4 py-3 text-left">Amount</th>
                             <th className="px-4 py-3 text-left">Time & Date</th>
                             <th className="px-4 py-3 text-left">Actions</th>
@@ -74,7 +74,7 @@ const Earnings = () => {
                             <tr key={transaction.id}>
                                 <td className="px-4 py-5">{transaction.id}</td>
                                 <td className="px-4 py-5">{transaction.transactionNumber}</td>
-                                <td className="px-4 py-5">{transaction.email}</td>
+                                <td className="px-4 py-5">{transaction.campainsName}</td>
                                 <td className="px-4 py-5">{transaction.amount}</td>
                                 <td className="px-4 py-5">{transaction.time}</td>
                                 <td className="px-4 py-5 ">

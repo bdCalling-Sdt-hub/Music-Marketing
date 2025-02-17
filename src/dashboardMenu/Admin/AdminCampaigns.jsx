@@ -121,7 +121,7 @@ const AdminCampaigns = () => {
                         <div className="flex w-full gap-5">
                             <div className='w-1/4'>
                                 <img src={campaign.image} alt={campaign.name} className=" rounded-lg" />
-                                {
+                                {/* {
                                     campaign && campaign.status === 'active' &&
                                     <div className='flex flex-col text-center'>
                                         <button
@@ -132,9 +132,9 @@ const AdminCampaigns = () => {
                                         </button>
                                         <Link to={'/admin/campaigns/active/view-ugc'} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
                                     </div>
-                                }
+                                } */}
                                 {
-                                    campaign && campaign.status === 'completed' &&
+                                    campaign.status === 'completed' &&
                                     <div className='flex flex-col text-center' >
                                         <Link
                                             to={`/admin/campaigns/completed/${campaign.id}`}
@@ -142,7 +142,19 @@ const AdminCampaigns = () => {
                                         >
                                             Go to Campaign
                                         </Link>
-                                        <Link to={`/admin/campaigns/completed/view-ugc`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                        <Link to={`/admin/campaigns`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
+                                    </div>
+                                }
+                                {
+                                    campaign.status === 'active' &&
+                                    <div className='flex flex-col text-center' >
+                                        <Link
+                                            to={`/admin/campaigns/active/${campaign.id}`}
+                                            className="mt-5 w-full border border-black text-black px-20 py-3 rounded-lg"
+                                        >
+                                            Go to Campaign
+                                        </Link>
+                                        <Link to={`/admin/campaigns`} className='mt-5 w-full border border-black text-black px-20 py-3 rounded-lg'>View UGC</Link>
                                     </div>
                                 }
                             </div>
@@ -193,7 +205,7 @@ const AdminCampaigns = () => {
                                             </div>
                                         </div>
                                         <button onClick={() => showModal(campaign)} className='bg-[#000] text-white px-10 py-3 rounded-lg relative top-[-10px]'>
-                                            Approved
+                                            Approve
                                         </button>
                                     </div>
 

@@ -22,6 +22,7 @@ const campaignsData = [
         timeline: "01 February, 2025 - 15 February, 2025",
         image: "/influencer/Home/Rectangle-2.png"
     },
+
     {
         id: 3,
         name: "Summer Music Campaign",
@@ -37,7 +38,8 @@ const campaignsData = [
         details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",
         timeline: "01 June, 2024 - 30 June, 2024",
         image: "/influencer/Home/Rectangle-2.png"
-    }
+    }, 
+    
 ];
 
 const Campaigns = () => {

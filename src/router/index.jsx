@@ -75,6 +75,8 @@ import InfluncerRecentlyParticipated from "../dashboardMenu/Client/InfluncerRece
 import ClientTransactions from "../dashboardMenu/Client/ClientTransactions";
 import AdminInfluencerRecentlyParticipated from "../dashboardMenu/Admin/AdminInfluencerRecentlyParticipated";
 import Notification from "../layout/Notification";
+import AllPayments from "../dashboardMenu/Admin/AllPayments";
+import ClientCampaignsActive from "../dashboardMenu/Client/ClientCampaignsActive";
 
 export const router = createBrowserRouter([
   {
@@ -170,9 +172,6 @@ export const router = createBrowserRouter([
       },
 
 
-
-
-
       {
         path: "userslist",
         element: <ApprovedUsers />,
@@ -261,6 +260,10 @@ export const router = createBrowserRouter([
         element: <ClientCampaignsActiveViewUgc />,
       },
       {
+        path: "campaigns/active/:id",
+        element: <ClientCampaignsActive />,
+      },
+      {
         path: "campaigns/active/view-ugc/:id",
         element: <ClientCampaignsActiveViewUgcViewDraft />,
       },
@@ -316,6 +319,10 @@ export const router = createBrowserRouter([
       {
         path: "notification",
         element: <Notification />,
+      },
+      {
+        path: "payments",
+        element: <AllPayments />,
       },
       {
         path: "campaigns",

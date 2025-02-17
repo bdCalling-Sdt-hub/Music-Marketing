@@ -26,7 +26,7 @@ const totalLiks = [
 
 
 
-const AdminCampaignsActive = () => {
+const ClientCampaignsActive = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 p-5 items-start'>
             {/* Left Section - Campaign Details */}
@@ -95,8 +95,9 @@ const AdminCampaignsActive = () => {
                             <Avatar style={{ backgroundColor: '#1677ff' }} icon={<AntDesignOutlined />} />
                         </Avatar.Group>
                     </div>
+                    {/* campaigns/completed/view-ugc */}
                     <div className='flex items-center justify-left'>
-                        <Link to={`/admin/campaigns/active/view-ugc`} className='border border-black px-5 py-3 rounded-xl mt-5'>View All</Link>
+                        <Link to={`/client/campaigns/active/view-ugc`} className='border border-black px-5 py-3 rounded-xl mt-5'>View All</Link>
                     </div>
                 </div>
             </div>
@@ -142,4 +143,4 @@ const AdminCampaignsActive = () => {
     );
 }
 
-export default AdminCampaignsActive;
+export default ClientCampaignsActive;

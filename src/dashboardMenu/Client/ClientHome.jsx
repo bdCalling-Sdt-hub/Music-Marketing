@@ -60,9 +60,9 @@ const ClientHome = () => {
             {/* Stats Section */}
             <div className="flex items-center gap-5 flex-wrap">
                 {[{ title: "Total Influencers", value: "40,689", icon: "/influencer/Home/Icon.png" },
-                { title: "Total Payment", value: "1,20,000", icon: "/influencer/Home/bank-icon.png" },
+                { title: "Total Payment", value: "$1,20,000", icon: "/influencer/Home/bank-icon.png" },
                 { title: "Active Campaigns", value: "10,293", icon: "/influencer/Home/Icon1.png" },
-                { title: "Total Campaigns", value: "$89,000", icon: "/influencer/Home/Icon1.png" }].map((stat, index) => (
+                { title: "Total Campaigns", value: "89,000", icon: "/influencer/Home/Icon1.png" }].map((stat, index) => (
                     <div key={index} className="flex w-80 items-center gap-5 justify-between bg-primary text-white p-5 rounded-lg">
                         <div>
                             <h4 className="text-xl font-semibold text-gray-200 mb-3">{stat.title}</h4>
@@ -80,7 +80,7 @@ const ClientHome = () => {
                 {/* Total Engagement Area Chart */}
                 <div className="bg-white p-5 rounded-lg shadow-md">
                     <div className="flex justify-between items-center mb-5">
-                        <h3 className="text-lg font-semibold text-gray-700">Total Engagement</h3>
+                        <h3 className="text-lg font-semibold text-gray-700">Total Payment</h3>
                         <select className="p-1 border rounded">
                             <option>December</option>
                             <option>January</option>

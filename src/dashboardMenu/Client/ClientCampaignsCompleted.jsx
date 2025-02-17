@@ -4,6 +4,7 @@ import { FaRegUserCircle } from 'react-icons/fa';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, BarChart, Bar, Legend } from "recharts";
 import { AntDesignOutlined } from '@ant-design/icons';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 
 
@@ -94,7 +95,10 @@ const ClientCampaignsCompleted = () => {
                             <Avatar style={{ backgroundColor: '#1677ff' }} icon={<AntDesignOutlined />} />
                         </Avatar.Group>
                     </div>
-                    <button className='border border-black px-5 py-3 rounded-xl mt-5'>View All</button>
+                    {/* campaigns/completed/view-ugc */}
+                    <div className='flex items-center justify-left'>
+                        <Link to={`/client/campaigns/active/view-ugc`} className='border border-black px-5 py-3 rounded-xl mt-5'>View All</Link>
+                    </div>
                 </div>
             </div>
 

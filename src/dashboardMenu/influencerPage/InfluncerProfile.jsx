@@ -37,9 +37,9 @@ const InfluencerProfile = () => {
                     <Link to={'/influencer/profile/editprofile'} className="flex items-center text-blue-500 font-semibold hover:underline">
                         <MdEdit className="mr-2" /> Edit Profile
                     </Link>
-                    <Dropdown className='flex items-center py-2 bg-[#1e1e1e] text-white' overlay={menu} placement="bottomRight">
+                    {/* <Dropdown className='flex items-center py-2 bg-[#1e1e1e] text-white' overlay={menu} placement="bottomRight">
                         <Button>Contact Info</Button>
-                    </Dropdown>
+                    </Dropdown> */}
                 </div>
             </div>
 
