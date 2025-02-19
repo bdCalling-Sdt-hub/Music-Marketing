@@ -8,12 +8,12 @@ const Main = () => {
     <div className="flex min-h-screen gap-5 relative">
 
       <Link target="_blank" to={'https://mail.google.com/mail/u/0/?fs=1&to=nimurnerob404@gmail.com&tf=cm'} className="fixed right-3 bottom-3 cursor-pointer">
-        <div className="relative">
+        <div className="relative w-14 flex items-center justify-center">
           {/* Ping Animation */}
-          <span className="absolute -inset-1 bg-blue-600 rounded-full w-16 h-16 animate-ping opacity-75"></span>
+          <span className="absolute -inset-1 bg-blue-600 rounded-full w-14 h-14 animate-ping opacity-75"></span>
 
           {/* Email Icon */}
-          <img className="relative w-16" src="/email.webp" alt="Email Icon" />
+          <img className="relative w-12" src="/email.webp" alt="Email Icon" />
 
         </div>
         <h2 className="font-semibold bg-black text-white p-1 rounded-lg text-xs text-center mt-1">Support</h2>

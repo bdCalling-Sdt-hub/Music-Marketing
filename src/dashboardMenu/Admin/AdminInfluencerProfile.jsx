@@ -52,6 +52,7 @@ const AdminInfluencerProfile = () => {
                     <p className='my-2'>Email: <span className="font-semibold ">maria123@gmail.com</span></p>
                     <p className='my-2'>Phone: <span className="font-semibold ">012344556567889</span></p>
                     <p className='my-2'>Joined: <span className="font-semibold ">December 1, 2025</span></p>
+                    <button className=' bg-[#344331] px-5 py-3 rounded-xl text-white'>Pay Influencer</button>
                 </div>
             </div>
 

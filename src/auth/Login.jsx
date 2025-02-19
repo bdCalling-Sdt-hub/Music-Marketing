@@ -28,6 +28,8 @@ const Login = () => {
     //     return;
     // }
 
+
+    navigate("/influencer/home");
     try {
       const res = await adminLogin(values).unwrap();
       // console.log(res);
@@ -37,7 +39,6 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(res?.data));
       }
       setTimeout(() => {
-        navigate("/dashboard/home");
       }, 1000);
     } catch (error) {
       // console.log(error);
@@ -56,7 +57,7 @@ const Login = () => {
     <div className=" min-h-screen ">
       <Toaster reverseOrder={false}></Toaster>
 
-      <form className='items-center grid-cols-2 grid gap-5'>
+      <form onSubmit={onFinish} className='items-center grid-cols-2 grid gap-5'>
         <div className='p-20 w-full'>
           <img className='w-20' src="/Common/musicBlackLogo.png" alt="Logo" />
           <h2 className='text-5xl font-semibold my-5'>Hello, Welcome!</h2>

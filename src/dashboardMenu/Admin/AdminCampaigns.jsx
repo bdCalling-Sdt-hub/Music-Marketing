@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd'; // Import Ant Design Modal
-import { FaFilter, FaSearch } from 'react-icons/fa'; // Import filter icon for dropdown
+import { FaEdit, FaFilter, FaSearch } from 'react-icons/fa'; // Import filter icon for dropdown
 import { FaChevronLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
@@ -118,7 +118,7 @@ const AdminCampaigns = () => {
                             {campaign && campaign.status === 'active' ? 'Active' : campaign && campaign.status === 'upcoming' ? 'Upcoming' : 'Completed'}
                         </div>
 
-                        <div className="flex w-full gap-5">
+                        <div className="flex w-full gap-5 relative">
                             <div className='w-1/4'>
                                 <img src={campaign.image} alt={campaign.name} className=" rounded-lg" />
                                 {/* {
@@ -158,8 +158,9 @@ const AdminCampaigns = () => {
                                     </div>
                                 }
                             </div>
+
                             <div className="flex-1">
-                                <h3 className="text-4xl font-semibold">{campaign.name}</h3>
+                                <h3 className="text-4xl font-semibold">{campaign.name} {campaign.status === 'upcoming' && <sup className='bg-blue-600 text-white px-1 rounded text-sm'>New</sup>}</h3>
                                 <p className="text-sm my-5"><span className='font-semibold'>Details:</span> Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia </p>
                                 <p className="text-sm mt-2"><span className="font-semibold">Targeted Timeline:</span> {campaign.timeline}</p>
 
@@ -231,7 +232,9 @@ const AdminCampaigns = () => {
                     <div>
 
                         <div>
-                            <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
+                            <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5 relative">
+
+                                <Link to={`/admin/campaigns/edit`} className='absolute right-0 top-0 flex items-start'><span className='bg-blue-500 text-white text-sm font-medium ml-2 flex items-center px-2 py-1 gap-1 rounded'> <FaEdit /> Edit</span></Link>
                                 <div>
                                     <div className='grid grid-cols-2 gap-5'>
                                         <img src="/influencer/Home/Rectangle-2.png" alt="" />

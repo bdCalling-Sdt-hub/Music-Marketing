@@ -73,47 +73,72 @@ const CampaignsUpload = () => {
                 >
                     Approved Drafts
                 </button>
+                <button
+                    className={`py-2 px-4 font-semibold ${activeTab === 'Declined' ? 'border-b-4 border-[#1b1b1b] text-[#1b1b1b]' : 'text-gray-500'}`}
+                    onClick={() => handleTabChange('Declined')}
+                >
+                    Declined Drafts
+                </button>
             </div>
 
             {/* Tab Content */}
             <div>
                 {activeTab === 'upload' && (
-                    <div className='w-96'>
-                        {/* Upload Drafts Tab Content */}
-                        <h2 className="text-3xl font-semibold ">Platform</h2>
+                    <div className='flex gap-10'>
+                        <div className='w-96'>
+                            {/* Upload Drafts Tab Content */}
+                            <h2 className="text-3xl font-semibold ">Platform</h2>
 
-                        <input className='w-full p-2 rounded-md border border-gray-400 my-5' type="text" placeholder='Input Platform Name' />
+                            <input className='w-full p-2 rounded-md border border-gray-400 my-5' type="text" placeholder='Input Platform Name' />
 
 
-                        {/* File Upload Section */}
-                        <div className='border-2 border-dashed rounded-md p-20 border-gray-300 w-full text-center'>
-                            <div className="mb-5 w-full  flex items-center justify-center flex-col">
-                                <label className="block mb-2">Click to Upload or drag and drop</label>
-                                <Upload
-                                    listType="picture-card"
-                                    fileList={file}
-                                    onPreview={handlePreview}
-                                    onChange={handleFileChange}
-                                    beforeUpload={() => false} // Prevent auto-upload
+                            {/* File Upload Section */}
+                            <div className='border-2 border-dashed rounded-md p-20 border-gray-300 w-full text-center'>
+                                <div className="mb-5 w-full  flex items-center justify-center flex-col">
+                                    <label className="block mb-2">Click to Upload or drag and drop</label>
+                                    <Upload
+                                        listType="picture-card"
+                                        fileList={file}
+                                        onPreview={handlePreview}
+                                        onChange={handleFileChange}
+                                        beforeUpload={() => false} // Prevent auto-upload
+                                    >
+                                        <div className="text-center p-5 flex items-center justify-center flex-col b">
+                                            <FaFileUpload className="text-xl mb-2" />
+                                            <p>Click to upload</p>
+                                        </div>
+                                    </Upload>
+                                    <p className="text-sm text-gray-500 mt-3">Max. File size: 25 MB</p>
+                                    <p>{file && file.length > 0 ? file[0].name : 'No file selected'}</p>
+                                </div>
+                            </div>
+
+                            {/* Submit Button */}
+                            <button
+                                className="bg-[#344331] w-full text-white py-3 mt-5 px-4 rounded"
+                                onClick={handleSubmit}
+                                disabled={!platformName || !file || file.length === 0}
+                            >
+                                Submit
+                            </button>
+                        </div>
+                        <div className='grid grid-cols-4 gap-10 w-full'>
+                            {/* Uploaded Drafts Tab Content */}
+
+                            <div className="mb-5 ">
+                                <h2 className="text-3xl font-semibold ">Platform</h2>
+                                <h3 className='font-semibold my-3'>TikTok</h3>
+                                <div className='border '>
+                                    <img className='w-full max-h-96' src="/influencer/Home/campaignIcons/uploadedFiles.png" alt="" />
+                                </div>
+                                <button
+                                    className="mt-3 bg-[#344331] w-full text-white py-3  rounded"
+                                    onClick={handleViewFeedback}
                                 >
-                                    <div className="text-center p-5 flex items-center justify-center flex-col b">
-                                        <FaFileUpload className="text-xl mb-2" />
-                                        <p>Click to upload</p>
-                                    </div>
-                                </Upload>
-                                <p className="text-sm text-gray-500 mt-3">Max. File size: 25 MB</p>
-                                <p>{file && file.length > 0 ? file[0].name : 'No file selected'}</p>
+                                    View Feedback
+                                </button>
                             </div>
                         </div>
-
-                        {/* Submit Button */}
-                        <button
-                            className="bg-[#344331] w-full text-white py-3 mt-5 px-4 rounded"
-                            onClick={handleSubmit}
-                            disabled={!platformName || !file || file.length === 0}
-                        >
-                            Submit
-                        </button>
                     </div>
                 )}
 
@@ -158,6 +183,31 @@ const CampaignsUpload = () => {
                                     <FaCirclePlay className='text-2xl font-semibold text-[#344331] cursor-pointer' />
                                 </span>
                             </label>
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'Declined' && (
+                    <div className='grid grid-cols-5 gap-10'>
+                        {/* Uploaded Drafts Tab Content */}
+
+                        <div className="mb-5 ">
+                            <h2 className="text-3xl font-semibold ">Platform</h2>
+                            <h3 className='font-semibold my-3'>TikTok</h3>
+                            <div className='border '>
+                                <img className='w-full max-h-96' src="/influencer/Home/campaignIcons/uploadedFiles.png" alt="" />
+                            </div>
+                            {/* <label className='flex items-center justify-between gap-3 p-2 border border-[#eee] rounded-md my-5' htmlFor="">
+                                <span>
+                                    <IoLinkOutline className='text-2xl font-semibold' />
+                                </span>
+                                <span>
+                                    <input className='w-full focus:outline-none right-0' type="text" placeholder='Upload your post link' />
+                                </span>
+                                <span>
+                                    <FaCirclePlay className='text-2xl font-semibold text-[#344331] cursor-pointer' />
+                                </span>
+                            </label> */}
                         </div>
                     </div>
                 )}

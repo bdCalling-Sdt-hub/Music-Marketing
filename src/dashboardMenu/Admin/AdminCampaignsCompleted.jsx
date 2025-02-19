@@ -1,10 +1,11 @@
 import { Avatar } from 'antd';
 import React from 'react';
-import { FaRegUserCircle } from 'react-icons/fa';
+import { FaEdit, FaRegUserCircle } from 'react-icons/fa';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, BarChart, Bar, Legend } from "recharts";
 import { AntDesignOutlined } from '@ant-design/icons';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { FiRefreshCcw } from 'react-icons/fi';
 
 
 
@@ -31,7 +32,8 @@ const AdminCampaignsCompleted = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 p-5 items-start'>
             {/* Left Section - Campaign Details */}
             <div>
-                <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5">
+                <div className="border border-secondary bg-[url('/influencer/Home/campaignIcons/campaindetailsGroup.png')] bg-cover bg-center h-full w-full p-5 relative">
+                    <Link to={`/admin/campaigns/edit`} className='absolute right-0 top-0 flex items-start'><span className='bg-blue-500 text-white text-sm font-medium ml-2 flex items-center px-2 py-1 gap-1 rounded'> <FaEdit /> Edit</span></Link>
                     <div className='grid grid-cols-2 gap-5'>
                         <img src="/influencer/Home/Rectangle-2.png" alt="Campaign" />
                         <div>
@@ -103,6 +105,9 @@ const AdminCampaignsCompleted = () => {
 
             {/* Right Section - Recharts Graph */}
             <div className="bg-white p-5 rounded-lg shadow-md ">  {/* Ensure the parent div has height */}
+                <div className='flex items-center justify-end'>
+                    <Link to={`/admin/campaigns/pay-influencer/:id`} className='bg-[#344331] px-5 py-3 rounded-xl text-white'>Pay Influencer</Link>
+                </div>
                 <div>
                     <h2 className='text-2xl font-semibold mb-4'>Total Likes</h2>
                     <ResponsiveContainer width="100%" height={400}> {/* Set a definite height */}
@@ -131,10 +136,10 @@ const AdminCampaignsCompleted = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center gap-2'>
+                    <button className='border border-black px-5 py-2 rounded-md mt-5 flex items-center justify-center gap-2'>Refresh Analytics <FiRefreshCcw />                    </button>
                     <button className='border border-black px-5 py-2 rounded-md mt-5 flex items-center justify-center gap-2'>Download Campaign Report <HiOutlineDocumentDownload />                    </button>
                 </div>
-
 
             </div>
 

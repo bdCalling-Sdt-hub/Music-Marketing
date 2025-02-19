@@ -5,6 +5,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { BsTiktok } from 'react-icons/bs';
 import { MdVerified } from 'react-icons/md';
 import { CiHeart, CiPlay1 } from 'react-icons/ci';
+import { FiRefreshCcw } from 'react-icons/fi';
+import { HiOutlineDocumentDownload } from 'react-icons/hi';
 
 // Chart Data
 const likesData = [
@@ -94,7 +96,7 @@ const ClientSingleInfluencerActivity = () => {
                 <div className="bg-white p-5 rounded-lg shadow-md">
                     <div className="flex justify-between items-center mb-5">
                         <h3 className="text-lg font-semibold text-gray-700">Total Likes</h3>
-                        <FaDownload className="text-gray-600 cursor-pointer" />
+                        {/* <FaDownload className="text-gray-600 cursor-pointer" /> */}
                     </div>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={likesData}>
@@ -112,7 +114,7 @@ const ClientSingleInfluencerActivity = () => {
                 <div className="bg-white p-5 rounded-lg shadow-md">
                     <div className="flex justify-between items-center mb-5">
                         <h3 className="text-lg font-semibold text-gray-700">Total Comments</h3>
-                        <FaDownload className="text-gray-600 cursor-pointer" />
+                        {/* <FaDownload className="text-gray-600 cursor-pointer" /> */}
                     </div>
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={commentsData}>
@@ -128,10 +130,9 @@ const ClientSingleInfluencerActivity = () => {
             </div>
 
             {/* Download Report Button */}
-            <div className="text-center mb-10">
-                <button className="border border-gray-600 text-gray-600 py-2 px-5 rounded-lg flex items-center gap-2 mx-auto">
-                    <FaDownload /> Download Post Analytics Report
-                </button>
+            <div className='flex items-center justify-center gap-2'>
+                <button className='border border-black px-5 py-2 rounded-md mt-5 flex items-center justify-center gap-2'>Refresh Analytics <FiRefreshCcw />                    </button>
+                <button className='border border-black px-5 py-2 rounded-md mt-5 flex items-center justify-center gap-2'>Download Campaign Report <HiOutlineDocumentDownload />                    </button>
             </div>
 
             {/* TikTok Post Preview Section */}

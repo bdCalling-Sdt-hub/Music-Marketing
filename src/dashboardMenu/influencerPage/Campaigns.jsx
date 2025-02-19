@@ -38,8 +38,8 @@ const campaignsData = [
         details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",
         timeline: "01 June, 2024 - 30 June, 2024",
         image: "/influencer/Home/Rectangle-2.png"
-    }, 
-    
+    },
+
 ];
 
 const Campaigns = () => {
@@ -120,7 +120,7 @@ const Campaigns = () => {
                         <div className="flex items-center w-full gap-5">
                             <img src={campaign.image} alt={campaign.name} className="w-1/4 h-full rounded-lg" />
                             <div className="flex-1">
-                                <h3 className="text-xl font-semibold">{campaign.name}</h3>
+                                <h3 className="text-xl font-semibold">{campaign.name} {campaign.status === "upcoming" && <span className='bg-[#5b48ff] text-white px-2 text-sm rounded'>New</span>} </h3>
                                 <p className="text-sm mt-2">{campaign.details}</p>
                                 <p className="text-sm mt-2"><span className="font-semibold">Targeted Timeline:</span> {campaign.timeline}</p>
                                 <button

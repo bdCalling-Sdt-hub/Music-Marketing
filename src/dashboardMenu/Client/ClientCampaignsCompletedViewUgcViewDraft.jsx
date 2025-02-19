@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Modal } from 'antd';
+import { Button, Modal } from 'antd';
 import Slider from "react-slick";
-import { FaRegCirclePlay } from 'react-icons/fa6';
+import { FaPlay } from 'react-icons/fa';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 
 // Slick Slider Settings
 const sliderSettings = {
@@ -27,6 +28,7 @@ const sliderSettings = {
         }
     ]
 };
+
 // Mock Media Data
 const mediaData = [
     { platform: "TikTok", image: "/influencer/Home/Rectangle-3.png" },
@@ -38,6 +40,7 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
     const [isMediaModalVisible, setIsMediaModalVisible] = useState(false);
     const [isFeedbackModalVisible, setIsFeedbackModalVisible] = useState(false);
     const [feedback, setFeedback] = useState("");
+    const [activeTab, setActiveTab] = useState('submitted'); // 'submitted' or 'declined'
 
     const handleSendFeedback = () => {
         console.log("Feedback submitted:", feedback);
@@ -45,10 +48,16 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
         setFeedback(""); // Reset feedback field after submission
     };
 
+
+    const [isViewModalVisible, setIsViewModalVisible] = useState(false);
+    const handleOpenMediaModal = () => {
+        setIsViewModalVisible(true);
+    };
+
     return (
         <div>
-            {/* Influencer Info */}
-            <div className='flex gap-5 items-center'>
+            {/* Tab Navigation */}
+            <div className='flex gap-5 items-center '>
                 <img className='w-32 h-32 rounded-full' src="/influencer/Home/Rectangle-2.png" alt="Influencer" />
                 <div>
                     <h2 className='text-2xl font-semibold'>Maria Rodrigez</h2>
@@ -61,26 +70,93 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
                     </div>
                 </div>
             </div>
+            <div className="flex my-10">
 
-            {/* Campaign Media */}
-            <div className='my-10 w-52'>
-                <h2 className='text-2xl font-semibold'>Platform</h2>
-                <h3 className='my-2'>TikTok</h3>
+
+                <button
+                    className={`py-2 px-5 text-lg font-semibold  ${activeTab === 'submitted' ? 'border-b-4 border-[#2e0000]' : 'text-gray-500'}`}
+                    onClick={() => setActiveTab('submitted')}
+                >
+                    Submitted Drafts
+                </button>
+                <button
+                    className={`py-2 px-5 text-lg font-semibold  ${activeTab === 'declined' ? 'border-b-4 border-[#2e0000]' : 'text-gray-500'}`}
+                    onClick={() => setActiveTab('declined')}
+                >
+                    Declined Drafts
+                </button>
+            </div>
+
+            {/* Tab Content */}
+            {activeTab === 'submitted' && (
                 <div>
-                    <div
-                        className='w-full min-h-80 flex items-center justify-center h-full bg-[url("/influencer/Home/Rectangle-3.png")] bg-cover bg-no-repeat bg-center cursor-pointer'
-                        onClick={() => setIsMediaModalVisible(true)}
-                    >
-                        <FaRegCirclePlay className='text-white text-4xl' />
+                    {/* Influencer Info */}
+
+
+                    {/* Campaign Media */}
+                    <div className='my-10 w-72'>
+                        <h2 className='text-2xl font-semibold'>Platform</h2>
+                        <h3 className='my-2'>TikTok</h3>
+                        <div>
+                            <div
+                                className='w-full min-h-80 flex items-center justify-center h-full bg-[url("/influencer/Home/Rectangle-3.png")] bg-cover bg-no-repeat bg-center cursor-pointer'
+                                onClick={() => setIsMediaModalVisible(true)}
+                            >
+                                <FaPlay className='text-white text-4xl' />
+                            </div>
+                        </div>
+                        <div className='space-y-3 my-5'>
+                            <div className='flex items-center gap-2'>
+                                <button className='block py-3 w-full bg-[#2e0000] text-white rounded-lg'>Accept</button>
+                                <button className='block py-3 w-full bg-[#344331] text-white rounded-lg' >
+                                    Decline
+                                </button>
+                            </div>
+                            <button className='block py-3 w-full bg-[#344331] text-white rounded-lg' onClick={() => setIsFeedbackModalVisible(true)}>
+                                Send Feedback
+                            </button>
+
+                            <Link to={`/client/campaigns/completed/view-feedback`} className='block text-center py-3 w-full bg-[#344331] text-white rounded-lg' >
+                                View Feedback
+                            </Link>
+
+                        </div>
                     </div>
                 </div>
-                <div className='space-y-3 my-5'>
-                    <button className='block py-3 w-full bg-[#344331] text-white rounded-lg' onClick={() => setIsFeedbackModalVisible(true)}>
-                        Send Feedback
-                    </button>
-                    <button className='block py-3 w-full bg-[#2e0000] text-white rounded-lg'>Accept</button>
+            )}
+
+            {activeTab === 'declined' && (
+                <div>
+                    <div className='my-10 w-72'>
+                        <h2 className='text-2xl font-semibold'>Platform</h2>
+                        <h3 className='my-2'>TikTok</h3>
+                        <div>
+                            <div
+                                className='w-full min-h-80 flex items-center justify-center h-full bg-[url("/influencer/Home/Rectangle-3.png")] bg-cover bg-no-repeat bg-center cursor-pointer'
+                            // onClick={() => setIsMediaModalVisible(true)}
+                            >
+                                <FaPlay className='text-white text-4xl' />
+                            </div>
+                        </div>
+                        {/* <div className='space-y-3 my-5'>
+                            <button className='block py-3 w-full bg-[#344331] text-white rounded-lg' onClick={() => setIsFeedbackModalVisible(true)}>
+                                Send Feedback
+                            </button>
+                            <button className='block py-3 w-full bg-[#2e0000] text-white rounded-lg'>Accept</button>
+                        </div> */}
+                        {/* <button className='block py-3 w-full bg-[#344331] text-white rounded-lg mt-5' onClick={handleOpenMediaModal} >
+                            View Feedback
+                        </button> */}
+                    </div>
                 </div>
-            </div>
+            )}
+
+            {isViewModalVisible && (
+                <Modal visible={isViewModalVisible} footer={null} onCancel={() => setIsViewModalVisible(false)} width={400}>
+                    <h2 className='text-xl font-semibold text-center mb-3'>Feedback</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, sapiente. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis labore suscipit quibusdam tempore vitae aliquid minima dolor quaerat quis dolorem vero, quasi odit! Sapiente suscipit perferendis vel optio autem alias tempora recusandae quisquam facere aliquid quis repudiandae nisi dolores, sequi at minus error odio. Laboriosam?</p>
+                </Modal>
+            )}
 
             {/* Media Modal with Slider */}
             <Modal visible={isMediaModalVisible} footer={null} onCancel={() => setIsMediaModalVisible(false)} width={400}>
@@ -88,7 +164,7 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
                 <h3 className=' mb-3'>TikTok</h3>
                 <div className='relative'>
                     <img className='min-h-[60vh] w-full' src="/influencer/Home/Rectangle-3.png" alt="" />
-                    <FaRegCirclePlay className="absolute inset-0 m-auto text-white text-5xl cursor-pointer" />
+                    <FaPlay className="absolute inset-0 m-auto text-white text-5xl cursor-pointer" />
                 </div>
 
                 <div className="overflow-hidden"> {/* Prevents unnecessary overflow */}
@@ -99,14 +175,13 @@ const ClientCampaignsCompletedViewUgcViewDraft = () => {
                                     <h2 className="mb-2">{item.platform}</h2>
                                     <div className='relative'>
                                         <img src={item.image} alt={item.platform} className="w-full h-auto rounded-lg" />
-                                        <FaRegCirclePlay className="absolute inset-0 m-auto text-white text-3xl cursor-pointer" />
+                                        <FaPlay className="absolute inset-0 m-auto text-white text-3xl cursor-pointer" />
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </Slider>
                 </div>
-
             </Modal>
 
             {/* Feedback Modal */}

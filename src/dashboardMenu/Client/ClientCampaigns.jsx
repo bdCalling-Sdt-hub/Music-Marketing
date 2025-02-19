@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd'; // Import Ant Design Modal
-import { FaFilter, FaSearch } from 'react-icons/fa'; // Import filter icon for dropdown
+import { FaEdit, FaFilter, FaSearch } from 'react-icons/fa'; // Import filter icon for dropdown
 import { FaChevronLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
@@ -154,14 +154,15 @@ const ClientCampaigns = () => {
                                 }
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-4xl font-semibold flex items-center">
-                                    {campaign.name}
+                                <div className="text-4xl font-semibold flex items-start relative">
+                                    <h2>{campaign.name}</h2>
+                                    {campaign.status === 'active' && <Link to={`/client/campaigns/edit`} className='absolute right-0 top-0 flex items-start'><span className='bg-blue-500 text-white text-sm font-medium ml-2 flex items-center px-2 py-1 gap-1 rounded'> <FaEdit /> Edit</span></Link>}
                                     {
                                         campaign.status === 'upcoming' &&
                                         <span className='bg-blue-500 text-white px-1 text-sm font-medium ml-2'>New</span>
                                     }
 
-                                </h3>
+                                </div>
                                 <p className="text-sm my-5"><span className='font-semibold'>Details:</span> Torem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia </p>
                                 <p className="text-sm mt-2"><span className="font-semibold">Targeted Timeline:</span> {campaign.timeline}</p>
 

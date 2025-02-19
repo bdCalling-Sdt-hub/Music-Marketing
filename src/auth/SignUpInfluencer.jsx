@@ -1,11 +1,18 @@
 import React from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaCalendarAlt, FaMapMarkerAlt, FaLock } from 'react-icons/fa'; // Add icons for relevant fields
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const SignUpInfluencer = () => {
+
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate('/login');
+    }
+
     return (
-        <form className='items-center grid-cols-2 grid gap-5'>
+        <form onSubmit={handleSubmit} className='items-center grid-cols-2 grid gap-5'>
             <div className='p-20 w-full'>
                 <img className='w-20' src="/Common/musicBlackLogo.png" alt="Logo" />
                 <h2 className='text-5xl font-semibold my-5'>Create an Account</h2>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaEye, FaSearch } from "react-icons/fa";
+import { FaEye, FaFilter, FaSearch } from "react-icons/fa";
 import { Modal, Button } from "antd"; // Ant Design Modal
 
 const transactions = [
@@ -54,15 +54,19 @@ const AdminTransactions = () => {
 
                 {/* Search Input with Button */}
                 <div className="flex space-x-5">
-                    <div>
-                        <select name="" id="" className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10">
+                    <div className="relative w-40">
+                        <FaFilter className="absolute right-3 top-3 text-gray-500" />
+                        <select className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10 appearance-none">
                             <option value="">All</option>
-                            <option value="">Dabit</option>
-                            <option value="">Creadit</option>
+                            <option value="">Debit</option>
+                            <option value="">Credit</option>
                         </select>
                     </div>
-                    <div>
-                        <select name="" id="" className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10">
+
+                    {/* Second Filter Dropdown */}
+                    <div className="relative w-40">
+                        <FaFilter className="absolute right-3 top-3 text-gray-500" />
+                        <select className="px-4 py-2 border rounded-lg shadow-sm w-full pr-10 appearance-none">
                             <option value="">All</option>
                             <option value="">Client</option>
                             <option value="">Influencer</option>
@@ -82,7 +86,7 @@ const AdminTransactions = () => {
             </div>
 
             {/* Transaction Table */}
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-10">
                 <table className="w-full border-collapse">
                     <thead>
                         <tr className="bg-black text-white">

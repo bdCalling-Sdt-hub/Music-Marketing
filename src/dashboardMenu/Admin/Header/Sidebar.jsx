@@ -115,7 +115,8 @@ const Sidebar = () => {
                             </svg>
                             <span className="hidden ml-2 sm:block">influencers</span>
                         </NavLink>
-
+                        
+                        {/* 
                         <NavLink
                             to="transactions"
                             className={({ isActive }) =>
@@ -138,7 +139,7 @@ const Sidebar = () => {
                         >
                             <CiCreditCard2 className="text-3xl" />
                             <span className="hidden ml-2 sm:block">Payment</span>
-                        </NavLink>
+                        </NavLink> */}
 
 
 

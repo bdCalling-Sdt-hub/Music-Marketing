@@ -26,7 +26,7 @@ const Feedbacks = () => {
 
     return (
         <div>
-            <Link className='flex items-center gap-2 text-3xl font-semibold' to={'/influencer/home'}>
+            <Link className='flex items-center gap-2 text-3xl font-semibold' to={'/influencer/campaigns/uploadcampaign'}>
                 <FaChevronLeft /> Feedbacks
             </Link>
             <div className='mt-10 grid grid-cols-3 gap-5'>

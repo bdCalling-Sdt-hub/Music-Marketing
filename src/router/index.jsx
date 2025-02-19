@@ -77,6 +77,7 @@ import AdminInfluencerRecentlyParticipated from "../dashboardMenu/Admin/AdminInf
 import Notification from "../layout/Notification";
 import AllPayments from "../dashboardMenu/Admin/AllPayments";
 import ClientCampaignsActive from "../dashboardMenu/Client/ClientCampaignsActive";
+import AdminCampaignsCompletedPayInfluencer from "../dashboardMenu/Admin/AdminCampaignsCompletedPayInfluencer";
 
 export const router = createBrowserRouter([
   {
@@ -340,6 +341,10 @@ export const router = createBrowserRouter([
       {
         path: "campaigns/completed/:id",
         element: <AdminCampaignsCompleted />,
+      },
+      {
+        path: "campaigns/pay-influencer/:id",
+        element: <AdminCampaignsCompletedPayInfluencer />,
       },
       {
         path: "campaigns/completed/view-ugc",

@@ -5,6 +5,7 @@ import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianG
 import { AntDesignOutlined } from '@ant-design/icons';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { FiRefreshCcw } from 'react-icons/fi';
 
 
 
@@ -132,7 +133,8 @@ const ClientCampaignsActive = () => {
                     </ResponsiveContainer>
                 </div>
 
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center gap-2'>
+                    <button className='border border-black px-5 py-2 rounded-md mt-5 flex items-center justify-center gap-2'>Refresh Analytics <FiRefreshCcw />                    </button>
                     <button className='border border-black px-5 py-2 rounded-md mt-5 flex items-center justify-center gap-2'>Download Campaign Report <HiOutlineDocumentDownload />                    </button>
                 </div>
 

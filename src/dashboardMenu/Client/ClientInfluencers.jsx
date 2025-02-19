@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Table } from "antd";
 import { EyeOutlined, DownOutlined } from "@ant-design/icons";
 import { FaFacebook, FaFilter, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const data = [
@@ -10,14 +10,14 @@ const data = [
         key: "1",
         name: "Maria Rodriguez",
         email: "maria123@gmail.com",
-        platforms: ["facebook", "tiktok"],
+        platforms: ["tiktok", "twitter", "youtube"],
         profile: "/influencer/Home/Rectangle-2.png",
     },
     {
         key: "2",
         name: "Maria Rodriguez",
         email: "maria123@gmail.com",
-        platforms: ["facebook", "tiktok"],
+        platforms: ["tiktok", "twitter", "youtube"],
         profile: "/influencer/Home/Rectangle-2.png",
     }
 ];
@@ -76,7 +76,8 @@ const ClientInfluencers = () => {
             key: "platforms",
             render: (platforms) => (
                 <div className="flex gap-3">
-                    {platforms.includes("facebook") && <FaFacebook className="text-blue-600 text-2xl" />}
+                    {platforms.includes("youtube") && <FaYoutube className="text-red-600 text-2xl" />}
+                    {platforms.includes("twitter") && <FaTwitter className="text-black text-2xl" />}
                     {platforms.includes("tiktok") && <FaTiktok className="text-black text-2xl" />}
                 </div>
             ),

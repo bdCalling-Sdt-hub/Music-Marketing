@@ -7,16 +7,7 @@ import { Link } from 'react-router-dom';
 
 const InfluencerProfile = () => {
 
-    const menu = (
-        <Menu>
-            <Menu.Item key="1" icon={<FaEnvelope className="text-blue-500 text-2xl" />}>
-                Email
-            </Menu.Item>
-            <Menu.Item key="2" icon={<FaPhone className="text-green-500 text-2xl" />}>
-                Call
-            </Menu.Item>
-        </Menu>
-    );
+
 
     return (
         <div className="p-5 bg-gray-100 min-h-screen">
@@ -47,7 +38,7 @@ const InfluencerProfile = () => {
             <div className="grid md:grid-cols-4 grid-cols-2 gap-5 mb-5">
                 <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
                     <FaInstagram className="text-3xl text-pink-500" />
-                    <p className="text-xl font-semibold">40,689</p>
+                    <p className="text-xl font-semibold mt-2 mb-1">40,689</p>
                     <p className="text-gray-500">Instagram Followers</p>
                 </div>
                 {/* <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
@@ -57,13 +48,18 @@ const InfluencerProfile = () => {
                 </div> */}
                 <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
                     <FaYoutube className="text-3xl text-red-500" />
-                    <p className="text-xl font-semibold">89,000</p>
+                    <p className="text-xl font-semibold mt-2 mb-1">89,000</p>
                     <p className="text-gray-500">YouTube Followers</p>
                 </div>
                 <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
                     <FaTiktok className="text-3xl text-black" />
-                    <p className="text-xl font-semibold">2,040</p>
+                    <p className="text-xl font-semibold mt-2 mb-1">2,040</p>
                     <p className="text-gray-500">TikTok Subscribers</p>
+                </div>
+                <div className="flex flex-col items-center bg-white p-5 rounded-lg shadow-md">
+                    <FaTwitter className="text-3xl text-black" />
+                    <p className="text-xl font-semibold mt-2 mb-1">2,040</p>
+                    <p className="text-gray-500">Twitter Subscribers</p>
                 </div>
             </div>
 

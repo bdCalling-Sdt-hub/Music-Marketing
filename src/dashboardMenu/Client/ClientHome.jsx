@@ -140,7 +140,7 @@ const ClientHome = () => {
 
             <div>
                 <div className="flex justify-between my-8">
-                    <h2 className="text-3xl font-semibold">Active Campaigns</h2>
+                    <h2 className="text-3xl font-semibold">Active Campaigns <sup className='text-sm bg-secondary text-white px-1 rounded'>100</sup></h2>
                     <Link to={'/client/campaigns'} className="border text-primary border-primary  py-2 px-5 rounded-lg">Show All</Link>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

@@ -145,7 +145,7 @@ const InfluncerHome = () => {
                     <div className='grid md:grid-cols-2 gap-2 grid-cols-1 lg:gap-2 xl:gap-3 w-full'>
 
                         <div className="overflow-x-auto bg-[#f3f4f6] rounded-lg px-5">
-                            <h2 className="text-2xl font-semibold py-5">Active Campaigns</h2>
+                            <h2 className="text-2xl font-semibold py-5">Active Campaigns <sup className='text-sm bg-secondary text-white px-1 rounded'>100</sup></h2>
                             <div className='flex gap-5 my-5'>
                                 <div className='w-2/5'>
                                     <img className='w-full h-full rounded-xl' src="/influencer/Home/Rectangle-2.png" alt="" />
